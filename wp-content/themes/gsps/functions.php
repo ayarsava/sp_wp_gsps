@@ -145,7 +145,8 @@ function gsps_scripts() {
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'gsps-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	
+	wp_enqueue_script( 'lottie', 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js', array(), _S_VERSION,  );
+	wp_enqueue_script( 'lottie_interactivity', 'https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js', array(), _S_VERSION,  );
 	wp_enqueue_script( 'gsps-js', get_template_directory_uri() . '/js/custom.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -40,7 +40,6 @@ get_header();
     </div>
 </div><!-- end hero -->
 
-
 <!-- hero 2 -->
 <div class="bg-gray-100 pt-10 overflow-hidden">
     <!-- container -->
@@ -48,10 +47,12 @@ get_header();
         <!-- hero wrapper -->
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
             <!-- hero image -->
-            <div class="flex-1 hero-image max-w-xs relative" data-aos="flip-left">
+            <div class="flex-1 hero-image max-w-xs relative">
                 <!--<div class="absolute rounded-full inset-3 bg-gradient-to-r from-teal to-blue-100 shadow-lg sm:rotate-3 w-60 md:w-60 lg:w-60 h-60"></div>-->
-                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-96 md:w-96 lg:w-96 -inset-20"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
-                <img class="relative p-6 w-60 md:w-60 lg:w-60 bg-white rounded-full border-white border-2" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-hands.png">
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute opacity-20 w-96 md:w-96 lg:w-96 -inset-20"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
+                <lottie-player id="firstLottie" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion1.json" style="width:100%; max-height: 350px;">"></lottie-player>
+                
+                
             </div>
             <!-- hero text -->
             <div class="flex-1 hero-text">
@@ -67,8 +68,9 @@ get_header();
             </div>
             <!-- hero image -->
             <div class="flex-1 hero-image max-w-xs relative" data-aos="flip-left">
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-50 md:w-50 lg:w-50 inset-2"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
-                <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white rounded-full border-white border-2 transform rotate-12" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-doc.png">
+                <lottie-player id="secondLottie" src="https://assets4.lottiefiles.com/private_files/lf30_4kmk2efh.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"></lottie-player>
+                <!--<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-50 md:w-50 lg:w-50 inset-2"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
+                <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white rounded-full border-white border-2 transform rotate-12" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-doc.png">-->
             </div>
         </div>
 
@@ -76,8 +78,9 @@ get_header();
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
             <!-- hero image -->
             <div class="flex-1 hero-image max-w-xs relative" data-aos="flip-left">
-                <svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-96 md:w-96 lg:w-96 -inset-5 transform skew-y-12"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
-                <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-road.png">
+                <!--<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-96 md:w-96 lg:w-96 -inset-5 transform skew-y-12"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
+                <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-road.png">-->
+                <lottie-player id="thirdLottie" src="https://assets1.lottiefiles.com/packages/lf20_svy4ivvy.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"></lottie-player>
             </div>
             <!-- hero text -->
             <div class="flex-1 hero-text">

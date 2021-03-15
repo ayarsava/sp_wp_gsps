@@ -2016,6 +2016,35 @@ var swiper = new swiper_core__WEBPACK_IMPORTED_MODULE_2__.default('.swiper-conta
   }
 });
 jQuery(function ($) {
+  LottieInteractivity.create({
+    mode: 'scroll',
+    player: '#firstLottie',
+    actions: [{
+      visibility: [0, 1],
+      type: 'seek',
+      frames: [0, 200]
+    }]
+  });
+  LottieInteractivity.create({
+    mode: 'scroll',
+    player: '#secondLottie',
+    actions: [{
+      visibility: [0, 1],
+      type: 'seek',
+      frames: [0, 227]
+    }]
+  });
+  LottieInteractivity.create({
+    mode: 'scroll',
+    player: '#thirdLottie',
+    actions: [{
+      visibility: [0, 1],
+      type: 'seek',
+      frames: [0, 150]
+    }]
+  });
+});
+jQuery(function ($) {
   var delay = 0;
   $('.resource-item').each(function () {
     delay = delay + 100;
