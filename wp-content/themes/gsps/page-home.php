@@ -80,7 +80,7 @@ get_header();
             <div class="flex-1 hero-image max-w-xs relative" data-aos="flip-left">
                 <!--<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-96 md:w-96 lg:w-96 -inset-5 transform skew-y-12"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
                 <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-road.png">-->
-                <lottie-player id="thirdLottie" src="https://assets1.lottiefiles.com/packages/lf20_svy4ivvy.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"></lottie-player>
+                <lottie-player id="thirdLottie" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion3.json" style="width:100%; max-height: 350px;">"></lottie-player>
             </div>
             <!-- hero text -->
             <div class="flex-1 hero-text">

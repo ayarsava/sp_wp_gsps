@@ -46,6 +46,17 @@
 @import "tailwindcss/utilities";
 @import 'aos/dist/aos.css';
 @import 'swiper/swiper-bundle.css';
+@import 'tocbot/dist/tocbot.css';
+
+
+.entry-content {
+    h2:focus, h3:focus, h4:focus, h5:focus, h6:focus {
+        outline:none;
+    }
+}
+.js-toc .is-active-link::before {
+    background-color: teal;
+}
 
 .site-main p {
     margin-bottom: 1.3rem;
