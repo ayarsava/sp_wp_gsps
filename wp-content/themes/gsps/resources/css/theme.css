@@ -16,26 +16,6 @@
     h4 {
         @apply text-xl mb-1 font-medium font-heading;
     }
-    .fp-stories {
-        > :nth-child(2) {
-            @apply md:row-span-2 bg-gray-500;
-        }
-        > :nth-child(3) {
-            @apply md:row-span-3;
-        }
-        > :nth-child(4) {
-            @apply md:row-span-4;
-        }
-        > :nth-child(5) {
-            @apply md:row-span-3;
-        }
-        > :nth-child(6) {
-            @apply md:row-span-3;
-        }
-        > :nth-child(7) {
-            @apply md:row-span-3;
-        }
-    }
 }
 @import "tailwindcss/components";
 @layer components {
@@ -48,6 +28,26 @@
 @import 'swiper/swiper-bundle.css';
 @import 'tocbot/dist/tocbot.css';
 
+.fp-stories {
+    > :nth-child(2) {
+        @apply md:row-span-2 bg-gray-500;
+    }
+    > :nth-child(3) {
+        @apply md:row-span-3;
+    }
+    > :nth-child(4) {
+        @apply md:row-span-4;
+    }
+    > :nth-child(5) {
+        @apply md:row-span-3;
+    }
+    > :nth-child(6) {
+        @apply md:row-span-3;
+    }
+    > :nth-child(7) {
+        @apply md:row-span-3;
+    }
+}
 
 .entry-content {
     h2:focus, h3:focus, h4:focus, h5:focus, h6:focus {
@@ -61,13 +61,32 @@
 .site-main p {
     margin-bottom: 1.3rem;
 }
-.swiper-button-next-unique {
-    &:before {
-        content: '→';
-    }
-}
-.swiper-button-prev-unique {
-    &:before {
+div.swiper-button-prev{
+    color: teal;
+    left: 45px;
+    top: 33%;
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    &:after {
         content: '←';
+        font-size:1.2rem;
     }
 }
+div.swiper-button-next {
+    color: teal;
+    right: 45px;
+    top: 33%;
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    &:after {
+        content: '→';
+        font-size:1.2rem;
+    }
+}
+

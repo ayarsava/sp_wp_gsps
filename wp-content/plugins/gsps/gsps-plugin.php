@@ -68,7 +68,7 @@ function custom_post_type_resource() {
 		// Features this CPT supports in Post Editor.
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
 		// You can associate this CPT with a taxonomy or custom taxonomy.
-		'taxonomies'          => array( 'post_tag', 'category' ),
+		'taxonomies'          => array( 'post_tag'),
 
 		/**
 		* A hierarchical CPT is like Pages and can have

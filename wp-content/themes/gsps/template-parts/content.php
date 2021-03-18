@@ -50,22 +50,29 @@
 		</header><!-- .entry-header -->
 	<?php } ?> 
 		<!-- Content -->
-		<div class="container items-center max-w-3xl px-8 py-10 mx-auto space-y-6 leading-relaxed">
-			<?php 
-			$tags = get_the_tags();
-			$html = '<div class="post_tags mb-3">';
-			foreach ( $tags as $tag ) {
-				$tag_link = get_tag_link( $tag->term_id );
-						
-				$html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='px-3 py-1 bg-teal text-gray-200 inline-flex items-center justify-center mb-2 mr-2 text-sm {$tag->slug}'>";
-				$html .= "{$tag->name}</a>";
-			}
-			$html .= '</div>';
-			echo $html;
-			?>
-			<?php 
-				the_content();
-			?>
+		<div class="relative entry-content">
+			<nav class="toc js-toc container items-center max-w-3xl px-8 pt-10 mx-auto leading-tight xl:absolute xl:top-8 xl:pl-8 xl:pt-0 xl:max-w-xs xl:pr-16"></nav>
+			<div class="container items-center max-w-3xl px-8 py-10 mx-auto space-y-6 leading-relaxed">
+				<?php 
+				$tags = get_the_tags();
+				if (is_array($tags) || is_object($tags))
+				{
+					$html = '<div class="post_tags mb-3">';
+					foreach ( $tags as $tag ) 
+					{
+						$tag_link = get_tag_link( $tag->term_id );
+								
+						$html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='px-3 py-1 bg-teal text-gray-200 inline-flex items-center justify-center mb-2 mr-2 text-sm {$tag->slug}'>";
+						$html .= "{$tag->name}</a>";
+					}
+					$html .= '</div>';
+					echo $html;
+				}
+				?>
+				<?php 
+					the_content();
+				?>
+			</div>
 		</div>
 
 	</article><!-- #post-<?php the_ID(); ?> -->
@@ -97,7 +104,8 @@
 				
 				<?php 
 					$tags = get_the_tags();
-					if ( $tags && ! is_wp_error( $tags ) ) {
+					if (is_array($tags) || is_object($tags))
+					{
 						echo '<div class="mb-3">';
 						foreach ( $tags as $tag ) {
 							$tag_link = get_tag_link( $tag->term_id );        

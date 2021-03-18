@@ -26,15 +26,25 @@ get_header();
 
             <!-- hero text -->
             <div class="hero-text col-span-12 text-center relative pt-10 mx-auto">
-                <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ilustraciones-x2.png" class="w-10/12 absolute z-10 left-0 right-0 mx-auto">
-                <h1 class="font-bold text-6xl md:text-8xl max-w-5xl text-gray-900 leading-none xl:leading-tight mx-auto">
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal to-teal-light">
-                        Migration that works for everyone.
-                    </span>
-                </h1>
-                <p class="text-md md:text-xl text-gray-800 text-base leading-relaxed mt-8 font-semibold max-w-3xl mx-auto">The Global Skill Partnership is a migration model that brings countries together to ensure migration contributes to development for all. In the model, both countries of origin and destination get new workers, with needed skills, to help businesses grow and thrive. But that’s not all.</p>
-                <img class="mx-auto w-full lg:px-40 pt-10" src="<?php echo get_template_directory_uri(); ?>/resources/images/ilustraciones-x4.png">
-                <hr class="w-12 h-1 bg-teal rounded-full mt-8 mx-auto">
+                <div class="relative">
+                    <img src="<?php echo get_template_directory_uri(); ?>/media/samples/people-01.png" class="w-full absolute z-10 left-0 right-0 top-20 mx-auto">
+                    <h1 class="font-bold text-6xl md:text-8xl max-w-5xl text-gray-900 leading-none xl:leading-tight mx-auto text-teal">
+                        <span class="md:bg-clip-text md:text-transparent md:bg-gradient-to-r md:from-teal md:to-teal-light">
+                            Migration that works for everyone.
+                        </span>
+                    </h1>
+                </div>
+                <div class="relative">
+                    <p class="text-md md:text-xl text-gray-800 text-base leading-relaxed mt-8 font-semibold max-w-3xl mx-auto">The Global Skill Partnership is a migration model that brings countries together to ensure migration contributes to development for all. In the model, both countries of origin and destination get new workers, with needed skills, to help businesses grow and thrive. But that’s not all.</p>
+                    
+                    <lottie-player id="people1Lottie" class="w-56 md:h-48 xl:h-60 absolute z-10 left-0  sm:top-10 md:top-10 lg:top-10 xl:top-0" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-04.json">"></lottie-player>
+
+                    <lottie-player id="people2Lottie" class="w-56 md:h-48 xl:h-60 absolute z-10 right-0  sm:top-10 md:top-10 lg:top-10 xl:top-0" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-05.json">"></lottie-player>
+
+                    <lottie-player id="people3Lottie" class="w-56 md:h-48 xl:h-60 absolute z-10 right-1/3  sm:top-10 md:top-10 lg:top-10 xl:top-14" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-06.json">"></lottie-player>
+
+
+                </div>
             </div>
         </div>
     </div>
@@ -44,45 +54,38 @@ get_header();
 <div class="bg-gray-100 pt-10 overflow-hidden">
     <!-- container -->
     <div class="container px-4 sm:px-8 lg:px-60 xl:px-80 mx-auto">
-        <!-- hero wrapper -->
+        <!-- lottie animantion 1 wrapper -->
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
-            <!-- hero image -->
+            <!-- lottie animantion 1 -->
             <div class="flex-1 hero-image max-w-xs relative">
-                <!--<div class="absolute rounded-full inset-3 bg-gradient-to-r from-teal to-blue-100 shadow-lg sm:rotate-3 w-60 md:w-60 lg:w-60 h-60"></div>-->
                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute opacity-20 w-96 md:w-96 lg:w-96 -inset-20"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
-                <lottie-player id="firstLottie" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion1.json" style="width:100%; max-height: 350px;">"></lottie-player>
-                
-                
+                <lottie-player id="firstLottie"  data-aos="fade-right" data-aos-offset="100" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion1.json" style="width:100%; max-height: 350px;">"></lottie-player>
             </div>
-            <!-- hero text -->
+            <!-- lottie animantion 1 text -->
             <div class="flex-1 hero-text">
                 <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of origin get support for their broader development goals</p>
             </div>
         </div>
 
-        <!-- hero wrapper -->
+        <!-- lottie animantion 2 wrapper -->
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
-            <!-- hero text -->
+            <!-- lottie animantion 2 text -->
             <div class="flex-1 hero-text text-right">
                 <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of destination get to manage migration in a safe, legal, and ethical way</p>
             </div>
-            <!-- hero image -->
-            <div class="flex-1 hero-image max-w-xs relative" data-aos="flip-left">
-                <lottie-player id="secondLottie" src="https://assets4.lottiefiles.com/private_files/lf30_4kmk2efh.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"></lottie-player>
-                <!--<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-50 md:w-50 lg:w-50 inset-2"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
-                <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white rounded-full border-white border-2 transform rotate-12" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-doc.png">-->
+            <!-- lottie animantion 2 -->
+            <div class="flex-1 hero-image max-w-xs relative">
+                <lottie-player id="secondLottie" data-aos="fade-in" data-aos-offset="100" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion2.json" style="width:100%; max-height: 350px;">"></lottie-player>
             </div>
         </div>
 
-        <!-- hero wrapper -->
+        <!-- lottie animantion 3 wrapper -->
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
-            <!-- hero image -->
-            <div class="flex-1 hero-image max-w-xs relative" data-aos="flip-left">
-                <!--<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute w-96 md:w-96 lg:w-96 -inset-5 transform skew-y-12"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
-                <img class="relative rounded-full p-6 border-white border-2 w-60 md:w-60 lg:w-60 bg-white" src="<?php echo get_template_directory_uri(); ?>/resources/images/illust-road.png">-->
-                <lottie-player id="thirdLottie" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion3.json" style="width:100%; max-height: 350px;">"></lottie-player>
+            <!-- lottie animantion 3 -->
+            <div class="flex-1 hero-image max-w-xs relative">
+                <lottie-player id="thirdLottie" data-aos="fade-right" data-aos-offset="100" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion3.json" style="width:100%; max-height: 350px;">"></lottie-player>
             </div>
-            <!-- hero text -->
+            <!-- lottie animantion 3 text -->
             <div class="flex-1 hero-text">
                 <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">And trainees get access to safe migration pathways, new opportunities, and better lives</p>
             </div>
@@ -130,21 +133,21 @@ get_header();
 
 <!-- GSP in Action-->
 <div id="gsp-in-action" class="relative bg-gray-100  pb-20">
-    <div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-28 md:-left-2 mb-10">
+    <div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-8 md:-left-2 mb-10">
         <div class="text-base font-semibold">GSP in Action</div>
     </div>
 
     <!-- container slider -->
     <div class="container">
-        <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+        <div class="relative container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?php wp_front_pilot(); ?>
                 </div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 
