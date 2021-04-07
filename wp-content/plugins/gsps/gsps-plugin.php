@@ -110,7 +110,7 @@ if ( ! function_exists( 'wp_front_posts_per_category' ) ) {
 			'posts_per_page'         => $ppp,
 			'category_name'          => $category,
 			'no_found_rows'          => true,
-      'offset'                 => $offset,
+      		'offset'                 => $offset,
 		);
 		// The Query
 		$query_ppc = new WP_Query( $args );

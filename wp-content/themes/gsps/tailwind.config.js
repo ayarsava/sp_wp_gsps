@@ -25,6 +25,7 @@ module.exports = {
         'sans': ['"PT Sans"', 'ui-serif'],
         'heading': ['"PT Serif"', 'sans-serif'],
       },
+      borderColor: ['hover'],
     },
   },
   variants: {

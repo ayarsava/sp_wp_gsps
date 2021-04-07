@@ -10,7 +10,7 @@ SwiperCore.use([Navigation, Pagination]);
 
 // init Swiper:
 const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1.1,
+    slidesPerView: 1.2,
     spaceBetween: 20,
     // Navigation arrows
     navigation: {
@@ -19,15 +19,15 @@ const swiper = new Swiper('.swiper-container', {
     },
     breakpoints: {
     640: {
-        slidesPerView: 2,
+        slidesPerView: 2.2,
         spaceBetween: 20,
     },
     768: {
-        slidesPerView: 4,
+        slidesPerView: 2.2,
         spaceBetween: 20,
     },
     1024: {
-        slidesPerView: 3,
+        slidesPerView: 3.2,
         spaceBetween: 20,
     },
     }
@@ -40,13 +40,15 @@ jQuery(function ($) {
     var people1Lottie = document.getElementById("people1Lottie");
     var people2Lottie = document.getElementById("people2Lottie");
     var people3Lottie = document.getElementById("people3Lottie");
+    var people4Lottie = document.getElementById("people4Lottie");
+    var people5Lottie = document.getElementById("people5Lottie");
     if(firstLottie){
         LottieInteractivity.create({
             mode: 'scroll',
             player: '#firstLottie',
             actions: [
             {
-                visibility: [0,0.8],
+                visibility: [0,0.5],
                 type: 'seek',
                 frames: [0, 50],
             },
@@ -72,9 +74,9 @@ jQuery(function ($) {
             player: '#thirdLottie',
             actions: [
             {
-                visibility: [0,1],
+                visibility: [0.3,0.9],
                 type: 'seek',
-                frames: [0, 50],
+                frames: [0, 150],
             },
             ],
         });
@@ -85,7 +87,7 @@ jQuery(function ($) {
             player: '#people1Lottie',
             actions: [
             {
-                visibility: [0.4,1],
+                visibility: [0,1],
                 type: 'seek',
                 frames: [0, 50],
             },
@@ -98,30 +100,17 @@ jQuery(function ($) {
             player: '#people2Lottie',
             actions: [
             {
-                visibility: [0.4,1],
+                visibility: [0.3,0.9],
                 type: 'seek',
-                frames: [0, 50],
+                frames: [0, 10],
             },
             ],
-        });
+        })
     };
     if(people3Lottie){
         LottieInteractivity.create({
             mode: 'scroll',
             player: '#people3Lottie',
-            actions: [
-            {
-                visibility: [0.4,1],
-                type: 'seek',
-                frames: [0, 50],
-            },
-            ],
-        });
-    };
-    if(people2Lottie){
-        LottieInteractivity.create({
-            mode: 'scroll',
-            player: '#people2Lottie',
             actions: [
             {
                 visibility: [0,1],
@@ -131,10 +120,23 @@ jQuery(function ($) {
             ],
         });
     };
-    if(people3Lottie){
+    if(people4Lottie){
         LottieInteractivity.create({
             mode: 'scroll',
-            player: '#people3Lottie',
+            player: '#people4Lottie',
+            actions: [
+            {
+                visibility: [0,1],
+                type: 'seek',
+                frames: [0, 50],
+            },
+            ],
+        });
+    };
+    if(people5Lottie){
+        LottieInteractivity.create({
+            mode: 'scroll',
+            player: '#people5Lottie',
             actions: [
             {
                 visibility: [0,1],

@@ -13,7 +13,7 @@
 $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), array( 5600,1000 ), false, '' );
 ?>
 <!-- BEG RESOURCE CARD -->
-<div class="resource-item col-span-3 md:col-span-1 h-64 relative bg-gray-100 bg-no-repeat bg-left-top bg-cover relative
+<div class="resource-item col-span-3 md:col-span-1 h-64 min-h-64 relative bg-gray-100 bg-no-repeat bg-left-top bg-cover relative
     <?php 
     if ( $featured_image ){ 
         echo 'bg-gray-200"  style="background-image: url(' .$featured_image[0]. ');">'; 
@@ -40,9 +40,9 @@ $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID 
     }
     
     if ( $featured_image ) { 
-        the_title( '<h4 data-aos="fade-right" data-aos-offset="" class="text-lg font-semibold text-gray-200 hover:text-white leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h4>' );
+        the_title( '<h4 class="text-lg font-semibold text-gray-200 hover:text-white leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h4>' );
     } else {
-        the_title( '<h4 data-aos="fade-right" data-aos-offset="" class="text-2xl font-semibold text-gray-700 hover:text-gray-900 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h4>' );
+        the_title( '<h4 class="text-lg lg:text-xl font-semibold text-gray-700 hover:text-gray-900 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h4>' );
     }
     
     $terms = get_the_terms( get_the_ID(), 'component' );

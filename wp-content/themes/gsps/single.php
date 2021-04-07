@@ -29,5 +29,26 @@ get_header();
 
 	</main><!-- #main -->
 
+	<!-- GSP in Action-->
+	<div id="related-content" class="relative bg-gray-100 py-20">
+		<div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-32 md:-left-2 mb-10">
+			<div class="text-base font-semibold">Related content</div>
+		</div>
+
+		<!-- container slider -->
+		<div class="container">
+			<div class="relative container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<?php wp_front_pilot(); ?>
+					</div>
+				</div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</div>
+	</div>
+
 <?php
 get_footer();

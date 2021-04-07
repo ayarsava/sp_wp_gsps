@@ -30,7 +30,10 @@
 
 .fp-stories {
     > :nth-child(2) {
-        @apply md:row-span-2 bg-gray-500;
+        @apply md:row-span-2 bg-gray-200 text-black;
+        h4 {
+            @apply text-gray-800;
+        }
     }
     > :nth-child(3) {
         @apply md:row-span-3;
@@ -64,6 +67,9 @@
 div.swiper-button-prev{
     color: teal;
     left: 45px;
+    @media (max-width: 767.98px) {
+        left: -15px;
+    }
     top: 33%;
     background: #fff;
     border-radius: 50%;
@@ -78,6 +84,9 @@ div.swiper-button-prev{
 div.swiper-button-next {
     color: teal;
     right: 45px;
+    @media (max-width: 767.98px) {
+        right: -15px;
+    }
     top: 33%;
     background: #fff;
     border-radius: 50%;
@@ -88,5 +97,9 @@ div.swiper-button-next {
         content: '→';
         font-size:1.2rem;
     }
+}
+.toc-list-item a {
+    padding-bottom: 0.2rem;
+    display: block;
 }
 

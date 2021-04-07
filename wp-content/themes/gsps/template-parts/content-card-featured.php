@@ -41,9 +41,9 @@ $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID 
 		?>
 		<?php 
 		if ( $featured_image ) { 
-			the_title( '<h3 data-aos="fade-right" data-aos-offset="100" class="text-2xl font-semibold text-gray-100 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h2>' );
+			the_title( '<h3 class="text-2xl font-semibold text-gray-100 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h2>' );
 		} else {
-			the_title( '<h4 data-aos="fade-right" data-aos-offset="100" class="text-2xl font-semibold text-gray-700 hover:text-gray-900 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h4>' );
+			the_title( '<h4 class="text-2xl font-semibold text-gray-700 hover:text-gray-900 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h4>' );
 		}
 		?>
 		

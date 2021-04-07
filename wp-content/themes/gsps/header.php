@@ -36,7 +36,7 @@
 					<!-- header logo -->
 					<div class="header-logo flex-none mr-20 pl-8 lg:pl-10">
 						<a href="<?php echo get_home_url(); ?>">
-							<div class="text-xl font-semibold text-gray-100">GSP</div>
+							<div class="text-3xl font-semibold text-gray-100">GSP</div>
 							<p class="text-sm text-gray-100">Global Skill Partnerships</p>
 						</a>
 					</div>
@@ -44,11 +44,8 @@
 					<!-- Navbar -->
 					<navbar class="navbar flex-grow hidden xl:block flex-grow-0 p-4 sm:pr-8 lg:pr-10">
 						<ul class="flex space-x-8 text-sm font-semibold text-gray-100">
-							<li><a href="/#gsp-in-action" class="active hover:text-yellow border-b-2 border-yellow pb-2">GSP in Action</a></li>
-							<li><a href="/#resources" class="hover:text-yellow">Resources</a></li>
-							<li><a href="/#migration-pathways" class="hover:text-yellow">Migration Pathways</a></li>
-							<li><a href="/start-a-gsp" class="px-4 py-3 border border-light-blue-500 border-opacity-40 text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900">START A GSP</a></li>
-                			<li><a href="/learn-more" class="px-4 py-3 bg-gray-300 text-gray-900 font-semibold hover:bg-gray-400" data-aos="fade-down">Learn More</a></li>
+							<li><a href="/gsps-in-action/" class="active border-b-2 border-transparent hover:border-yellow pb-2">GSPs in Action</a></li>
+							<li><a href="/#migration-pathways" class="border-b-2 border-transparent hover:border-yellow pb-2">Migration Pathways</a></li>
 						</ul>
 					</navbar>
 
@@ -67,16 +64,18 @@
 
 					<!-- Search & Logo -->
 					<navbar class="navbar flex-none hidden xl:block ml-auto h-full">
-						<ul class="flex items-center space-x-8 text-sm h-full">
-							<li><a href="#"><img class="w-24 md:w-24 lg:w-24" src="<?php echo get_template_directory_uri(); ?>/resources/img/logo-cgd-white.png"></a></li>
-							<li class="bg-yellow mx-2 sm:px-8 lg:px-10 h-full flex items-center">
+						<ul class="flex items-center space-x-8 text-sm h-full pr-8 lg:pr-10">
+							<li><a href="/learn-more" class="px-4 py-3 border-solid border border-gray-100 text-gray-100 font-semibold hover:text-gray-300">Learn More</a></li>
+							<li><a href="/start-a-gsp" class="px-4 py-3 bg-yellow text-gray-800 font-semibold hover:bg-yellow-300">Start a GSP</a></li>
+							<li class="text-gray-100 font-semibold h-full flex items-center">
 								<a href="#" class="text-teal">
-									
-									<svg class="h-5 w-5 text-gray-100 hover:text-yellow-900" viewBox="0 0 20 20" fill="currentColor">
+									<svg class="h-5 w-5 text-gray-100 hover:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
 									<path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
 									</svg>
 								</a>
 							</li>
+							<li><a href="#"><img class="w-24 md:w-24 lg:w-24" src="<?php echo get_template_directory_uri(); ?>/resources/img/logo-cgd-white.png"></a></li>
+							
 						</ul>
 					</navbar>
 
@@ -119,15 +118,14 @@
 			);
 			?>-->
 			<ul class="divide-y">
-				<li><a href="/#gsp-in-action" class="my-4 inline-block hover:text-teal">GSP in Action</a></li>
-				<li><a href="/#resources" class="my-4 inline-block hover:text-teal">Resources</a></li>
+				<li><a href="/gsps-in-action/" class="my-4 inline-block hover:text-teal">GSPs in Action</a></li>
 				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Migration Pathways</a></li>
 				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Search</a></li>
 			</ul>
 			<ul>
-				<li><a class="my-4 block px-4 py-3 border border-light-blue-500 border-opacity-40 bg-teal text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900" href="#">START A GSP</a></li>
-				<li><a class="mb-4 block px-4 py-3 bg-gray-300 text-gray-900 font-semibold hover:bg-gray-400" href="#" data-aos="fade-down">Learn More</a></li>
+				<li><a class="my-4 block px-4 py-3 border border-light-blue-500 border-opacity-40 bg-teal text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900" href="#">Start a GSP</a></li>
 				<li><a href="#"><img class="w-28" src="<?php echo get_template_directory_uri(); ?>/resources/img/logo-cgd-std.png"></a></li>
+				<li><a class="mb-4 block px-4 py-3 border-solid border-1 border-white text-gray-900 font-semibold hover:bg-gray-400" href="#" data-aos="fade-down">Learn More</a></li>
 			</ul>
 			
 
