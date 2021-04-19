@@ -10,18 +10,19 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main py-20">
+        <header class="entry-header pt-16">
+            <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto mb-4">
+                <h1 class="page-title entry-title text-3xl font-extrabold tracking-tight text-left text-gray-900 md:text-4xl md:leading-tight">Search</h1>
+            </div>
+        </header><!-- .page-header -->
+
+        <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto entry-content">
+        	
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'gsps' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+			<ul class="list-disc pl-4">
 
 			<?php
 			/* Start the Loop */
@@ -37,7 +38,7 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			echo '</ul>';
 
 		else :
 
@@ -49,5 +50,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

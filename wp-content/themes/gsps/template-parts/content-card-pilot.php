@@ -20,7 +20,7 @@ $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID 
         <?php the_post_thumbnail('medium', array('class' => 'object-cover origin-center h-full w-full group-hover:opacity-75 transition ease-in-out duration-150 group-hover:scale-110 transform')); ?>
         </div>
         <div class="mb-4">
-            <p class="mt-2 font-hairline text-sm text-gray-darker">PILOT</p>
+            <div class="mt-2 font-hairline text-sm text-gray-darker">PILOT</div>
             <?php the_title( '<h4 class="font-semibold text-lg pr-10 leading-snug group-hover:text-gray-500">', '</h4>' ); ?>
         </div>
     <?php } else { ?>

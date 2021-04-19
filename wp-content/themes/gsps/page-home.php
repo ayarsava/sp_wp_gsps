@@ -43,7 +43,7 @@ get_header();
 
                     <lottie-player id="people2Lottie" class="w-36 md:w-56 md:h-48 xl:h-60 absolute z-10 right-0  sm:top-20 md:top-10 lg:top-10 xl:top-0" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-02.json">"></lottie-player>
 
-                    <lottie-player id="people3Lottie" class="w-36 md:w-56 md:h-48 xl:h-60 absolute z-10 right-1/3  sm:top-20 md:top-20 lg:top-20 xl:top-14" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-06.json">"></lottie-player>
+                    <lottie-player id="people3Lottie" class="w-36 md:w-56 md:h-48 xl:h-60 absolute z-10 right-1/3  sm:top-20 md:top-20 lg:top-20 xl:top-18" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-06.json">"></lottie-player>
 
 
 
@@ -60,7 +60,7 @@ get_header();
 
 
         <!-- lottie animantion 1 wrapper -->
-        <div class="hero-wrapper flex flex-row space-x-8 items-center">
+        <div class="hero-wrapper flex flex-row space-x-6 items-center">
             <!-- lottie animantion 1 -->
             <div class="flex-1 hero-image max-w-xs relative">
                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="absolute opacity-20 w-96 md:w-96 lg:w-96 -inset-20"><path d="M81.77,83.39c-28.67,17.47-45.66,49.51-43,83C40.18,183.48,46.54,200,63.35,209c44.83,24,240.55,24.45,269.51-18s18.19-102.84-44.8-128C233.46,41.18,155.82,38.3,81.77,83.39Z" fill="#01697f" opacity="0.3"></path></svg>
@@ -68,7 +68,7 @@ get_header();
             </div>
             <!-- lottie animantion 1 text -->
             <div class="flex-1 hero-text">
-                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of origin get support for their broader development goals</p>
+                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of origin get support<br>for their broader development goals</p>
             </div>
         </div>
 
@@ -76,11 +76,13 @@ get_header();
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
             <!-- lottie animantion 2 text -->
             <div class="flex-1 hero-text text-right">
-                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of destination get to manage migration in a safe, legal, and ethical way</p>
+                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of destination<br>get to manage migration<br>in a safe, legal, and ethical way</p>
             </div>
             <!-- lottie animantion 2 -->
             <div class="flex-1 hero-image max-w-xs relative">
-                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498.97 251.99" class="absolute opacity-20 w-108 md:w-96 lg:w-96 -inset-10 pt-20 pl-10"><path d="M108,41S84,71,56,82-60,158,82,200s312,68,350,54,108-61,45-89-71-36-111-75S175-46,108,41Z" fill="#01697f" opacity="0.3"/></svg>
+
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.4 217.6" class="absolute opacity-20 w-108 md:w-96 lg:w-96 -inset-10 pt-20 pl-10"><path d="M128.2,29.82c-54.16,30.44-105.42,14-112,89.47-7.6,87.42,39.9,94.62,167.58,72.56s190.93-25.75,158-81.08S211.21-16.85,128.2,29.82Z" transform="translate(-15.43 -14.84)" fill="#01697f" opacity="0.3"/></svg>
+
                 <lottie-player id="secondLottie" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion2.json" style="width:100%; max-height: 350px;">"></lottie-player>
             </div>
         </div>
@@ -89,12 +91,15 @@ get_header();
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
             <!-- lottie animantion 3 -->
             <div class="flex-1 hero-image max-w-xs relative">
-            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 344 229" class="absolute opacity-20 w-96 md:w-96 lg:w-88 -inset-20 pt-14"><circle cx="229.5" cy="114.5" r="90.39" fill="#5a9eac" opacity="0.5"/><circle cx="114.5" cy="114.5" r="114.5" fill="#076e82" opacity="0.3"/></svg>
+
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.92 203.61" class="absolute opacity-20 w-96 md:w-96 lg:w-80 -inset-20 pt-28"><path d="M105.27,33.46C71.77,57.26-32.57,99.68,25.54,148.32s98.65,105.41,210.81,40.54,152.7-90.54,102.7-131.08S156.62-3,105.27,33.46Z" transform="translate(-8.26 -14.42)" fill="#01697f" opacity="0.3"/></svg>
+
+
                 <lottie-player id="thirdLottie" class="relative w-60 md:w-60 lg:w-60" src="<?php echo get_template_directory_uri(); ?>/media/samples/ilustracion3.json" style="width:100%; max-height: 350px;">"></lottie-player>
             </div>
             <!-- lottie animantion 3 text -->
             <div class="flex-1 hero-text">
-                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">And trainees get access to safe migration pathways, new opportunities, and better lives</p>
+                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">And trainees get access to safe migration pathways,<br>new opportunities,<br>and better lives</p>
             </div>
         </div>
     </div>
@@ -143,16 +148,7 @@ get_header();
     <div class="text-xl md:text-xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">GSPs in Action</div>
         
     <!-- container slider -->
-    <div class="relative w-full pl-4 sm:px-8 lg:px-16 xl:px-20 mx-auto overflow-hidden">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <?php wp_front_pilot(); ?>
-            </div>
-        </div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+        <?php wp_front_pilot(); ?>
 
      <!-- container stories -->  
      <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto mt-10">
@@ -182,15 +178,9 @@ get_header();
 
 
 
-<div id="migration-pathways" class="relative py-20 bg-brown">
-    <div class="text-xl md:text-2xl font-semibold text-white pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Migration pathways</div>
-    
-    <!--map-->
-    <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
-        <p class="md:w-7/12 text-sm md:text-normal text-gray-200 leading-relaxed mt-4 mb-8 font-semibold">Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id</p>
-        <div class="md:flex max-h-screen bg-no-repeat bg-center bg-cover rounded shadow-xl " style="background-image: url('<?php echo get_template_directory_uri(); ?>/media/samples/sample-mapa.png'); height:600px;">
-        </div>
-    </div>
+<div id="migration-pathways" class="relative bg-gray-200 pt-16">
+    <div class="text-xl md:text-2xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Migration Pathways</div>
+    <img src="<?php echo get_template_directory_uri(); ?>/media/samples/sample-mapa.png" class="w-full">
 </div>
 
 <?php

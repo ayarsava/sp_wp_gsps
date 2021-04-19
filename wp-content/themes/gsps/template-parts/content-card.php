@@ -17,12 +17,16 @@
 			get_template_part( 'template-parts/content', 'card-quote' );
 		} else {
 			// if is featured post
-			if (has_category('featured',$post->ID)) {
-				get_template_part( 'template-parts/content', 'card-featured' );
-			
+			if (is_front_page()) {
+				if (has_category('featured',$post->ID)) {
+					get_template_part( 'template-parts/content', 'card-featured' );
+				}
 			//if is not featured post
-			} else {
+			else {
 				get_template_part( 'template-parts/content', 'card-standard' );
+			} 
+			} else {
+				get_template_part( 'template-parts/content', 'card-resource' );
 			} 
 		}
 	} elseif ( 'resource' === get_post_type() ) {

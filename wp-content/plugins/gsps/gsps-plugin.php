@@ -134,10 +134,23 @@ if ( ! function_exists( 'wp_front_pilot' ) ) {
 		);
 		// The Query
 		$query_ppc = new WP_Query( $args );
+		$count = $query_ppc->post_count;
 		if ( $query_ppc->have_posts() ) { 
-			while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
-			get_template_part( 'template-parts/content', 'card-pilot' );
-			endwhile;
+			if ($count > 3) {
+				echo '<div class="relative w-full pl-4 sm:px-8 lg:px-16 xl:px-20 mx-auto overflow-hidden"><div class="swiper-container"><div class="swiper-wrapper">';
+					while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
+					get_template_part( 'template-parts/content', 'card-pilot' );
+					endwhile;
+				echo '</div></div>';
+				echo '<!-- Add Arrows --><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div>';
+			} else {
+				echo '<div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto"><div class="grid lg:grid-cols-3 lg:grid-rows-1 gap-4">';
+				while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
+				get_template_part( 'template-parts/content', 'card-pilot' );
+				endwhile;
+				echo '</div></div>';
+			}
+			
 		}
 	}
 }
@@ -161,8 +174,46 @@ if ( ! function_exists( 'wp_front_resources' ) ) {
 	}
 }
 
+
 /**
- * Automatically add IDs to headings such as <h2></h2>
+ * Add tag support to pages
+ */
+function tags_support_all() {
+	register_taxonomy_for_object_type('post_tag', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+	if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
+
+
+function my_theme_archive_title( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>';
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	} elseif ( is_tax() ) {
+		$title = single_term_title( '', false );
+	}
+  
+	return $title;
+}
+
+add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
+
+
+/**
+ * Automatically add IDs to headings
  */
 function auto_id_headings( $content ) {
 
@@ -177,3 +228,21 @@ function auto_id_headings( $content ) {
 
 }
 add_filter( 'the_content', 'auto_id_headings' );
+
+
+function pagination_bar( $custom_query ) {
+
+    $total_pages = $custom_query->max_num_pages;
+    $big = 999999999; // need an unlikely integer
+
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+
+        echo paginate_links(array(
+            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format' => '?paged=%#%',
+            'current' => $current_page,
+            'total' => $total_pages,
+        ));
+    }
+}

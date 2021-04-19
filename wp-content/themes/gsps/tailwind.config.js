@@ -1,8 +1,13 @@
 module.exports = {
-  purge: [
-    '*.php',
-    '*/*.php'
-  ],
+  purge: {
+    content: [
+      '*.php',
+      '*/*.php',
+    ],
+    options: {
+      safelist: ['list-disc','page-numbers'],
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -22,8 +27,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        'sans': ['"PT Sans"', 'ui-serif'],
-        'heading': ['"PT Serif"', 'sans-serif'],
+        'sans': ['"PT Sans"', 'sans-serif'],
+        'heading': ['"PT Serif"', 'serif'],
       },
       borderColor: ['hover'],
     },
@@ -36,6 +41,7 @@ module.exports = {
     }
   },
   plugins: [
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
   ],
 }

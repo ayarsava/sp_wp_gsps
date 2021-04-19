@@ -20,7 +20,7 @@
 					</div>
 					<?php 
 					if ( is_singular() ) :
-						the_title( '<h1 class="entry-title text-4xl font-extrabold tracking-tight text-left text-gray-100 sm:text-4xl md:text-6xl md:leading-tight md:text-center">', '</h1>' );
+						the_title( '<h1 class="entry-title text-4xl font-extrabold text-left text-gray-100 sm:text-4xl md:text-6xl md:leading-tight md:text-center">', '</h1>' );
 					else :
 						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 					endif;
@@ -33,7 +33,7 @@
 			<div class="container items-center max-w-3xl px-8 mx-auto space-y-6">
 				<?php 
 				if ( is_singular() ) :
-					the_title( '<h1 class="entry-title text-2xl font-extrabold tracking-tight text-left text-gray-900 sm:text-3xl md:text-4xl md:leading-tight">', '</h1>' );
+					the_title( '<h1 class="entry-title text-2xl font-extrabold text-left text-gray-900 sm:text-3xl md:text-4xl md:leading-tight">', '</h1>' );
 				else :
 					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				endif;
@@ -49,8 +49,10 @@
 			<?php } ?>
 		</header><!-- .entry-header -->
 	<?php } ?> 
+		
 		<!-- Content -->
 		<div class="relative entry-content">
+			<?php if(function_exists('mpdf_pdfbutton')) mpdf_pdfbutton(false, 'Download as PDF', 'Only to registered users.'); ?>
 			<nav class="toc js-toc container items-center max-w-3xl px-8 pt-10 mx-auto leading-tight xl:absolute xl:top-8 xl:pl-8 xl:pt-0 xl:max-w-xs xl:pr-16"></nav>
 			<div class="container items-center max-w-3xl px-8 py-10 mx-auto space-y-6 leading-relaxed">
 				<?php 
@@ -82,7 +84,7 @@
 			<div class="container items-center max-w-3xl px-8 mx-auto space-y-6">
 				<?php 
 				if ( is_singular() ) :
-					the_title( '<h1 class="entry-title text-3xl font-extrabold tracking-tight text-left text-gray-900 md:text-4xl md:leading-tight">', '</h1>' );
+					the_title( '<h1 class="entry-title text-3xl font-extrabold text-left text-gray-900 md:text-4xl md:leading-tight">', '</h1>' );
 				else :
 					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				endif;
@@ -98,7 +100,8 @@
 			<?php } ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content">
+		<div class="relative entry-content">
+			<?php if(function_exists('mpdf_pdfbutton')) mpdf_pdfbutton(false, 'Download as PDF', 'Only to registered users.'); ?>
 			<!-- Content -->
 			<div class="container items-center max-w-3xl px-8 py-10 mx-auto space-y-6 leading-relaxed">
 				
