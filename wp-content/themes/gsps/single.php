@@ -35,19 +35,8 @@ get_header();
 			<div class="text-base font-semibold">Related content</div>
 		</div>
 
-		<!-- container slider -->
-		<div class="container">
-			<div class="relative container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<?php wp_front_pilot(); ?>
-					</div>
-				</div>
-				<!-- Add Arrows -->
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
-			</div>
-		</div>
+		<!-- Pilot list -->
+		<?php wp_front_pilot(); ?>
 	</div>
 
 <?php

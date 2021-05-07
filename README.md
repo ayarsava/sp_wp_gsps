@@ -11,7 +11,7 @@ PRODUCTION
 * `rmdir ./wordpress/`
 * `rm -f latest.tar.gz`
 * Instal wordpress
-* `git clone https://github.com/sociopublico/gsp`
+* `git clone https://github.com/ayarsava/sp_wp_gsps`
 
 
 General Setup

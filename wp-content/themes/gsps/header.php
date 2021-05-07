@@ -42,15 +42,15 @@
 					</div>
 
 					<!-- Navbar -->
-					<navbar class="navbar flex-grow hidden xl:block flex-grow-0 p-4 sm:pr-8 lg:pr-10">
+					<navbar class="navbar flex-grow hidden lg:block flex-grow-0 p-4">
 						<ul class="flex space-x-8 text-sm font-semibold text-gray-100">
-							<li><a href="/gsps-in-action/" class="active border-b-2 border-transparent hover:border-yellow pb-2">GSPs in Action</a></li>
+							<li><a href="/gsps-in-action/" class="border-b-2 border-transparent hover:border-yellow pb-2">GSPs in Action</a></li>
 							<li><a href="/#migration-pathways" class="border-b-2 border-transparent hover:border-yellow pb-2">Migration Pathways</a></li>
 						</ul>
 					</navbar>
 
 					<!-- mobile toggle -->
-					<div class="toggle xl:hidden ml-auto pr-8">
+					<div class="toggle lg:hidden ml-auto pr-8">
 						<button @click=" isOpen = true" @keydown.escape=" isOpen = false">
 							<svg 
 								class="h-6 w-6 fill-current text-gray-100"
@@ -63,7 +63,7 @@
 					</div>
 
 					<!-- Search & Logo -->
-					<navbar class="navbar flex-none hidden xl:block ml-auto h-full">
+					<navbar class="navbar flex-none hidden lg:block ml-auto h-full">
 						<ul class="flex items-center space-x-8 text-sm h-full pr-8 lg:pr-10">
 							<li><a href="/learn-more" class="px-4 py-3 border-solid border border-gray-100 text-gray-100 font-semibold hover:text-gray-300">Learn More</a></li>
 							<li><a href="/start-a-gsp" class="px-4 py-3 bg-yellow text-gray-800 font-semibold hover:bg-yellow-300">Start a GSP</a></li>
@@ -122,12 +122,9 @@
 			<ul class="divide-y">
 				<li><a href="/gsps-in-action/" class="my-4 inline-block hover:text-teal">GSPs in Action</a></li>
 				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Migration Pathways</a></li>
-				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Search</a></li>
-			</ul>
-			<ul>
-				<li><a class="my-4 block px-4 py-3 border border-light-blue-500 border-opacity-40 bg-teal text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900" href="#">Start a GSP</a></li>
-				<li><a href="#"><img class="w-28" src="<?php echo get_template_directory_uri(); ?>/resources/img/logo-cgd-std.png"></a></li>
-				<li><a class="mb-4 block px-4 py-3 border-solid border-1 border-white text-gray-900 font-semibold hover:bg-gray-400" href="#" data-aos="fade-down">Learn More</a></li>
+				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Learn More</a></li>
+				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Start a GSP</a></li>
+				<li><button class="my-4 inline-block hover:text-teal" @click=" openSearch = true" @keydown.escape=" openSearch = false">Search</button></li>
 			</ul>
 			
 

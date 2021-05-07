@@ -13,7 +13,7 @@
 $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), array( 5600,1000 ), false, '' );
 ?>
 
-<!-- BEG FEATURED CARD --><div class="md:row-span-3 md:col-span-2 order-first bg-gray-200 min-h-full h-96 relative relative
+<!-- BEG FEATURED CARD --><div class="md:col-span-2 order-first bg-gray-200 h-96 relative
 
 	<?php 
     if ( $featured_image ){ 
@@ -26,19 +26,35 @@ $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID 
 
 
 	<div class="p-4 absolute bottom-5 left-3 z-20">
-		<?php 
-		$tags = get_the_tags();
-		if (is_array($tags) || is_object($tags))
-		{
-			foreach ( $tags as $tag ) {
-				$tag_link = get_tag_link( $tag->term_id );
+		<?php
+		$terms_region = get_the_terms( $post->ID, 'region' );
+		if ( $terms_region && ! is_wp_error( $terms_region ) ) {
+			$html = '<div class="terms_sector inline-block">';
+			foreach ( $terms_region as $term_region ) 
+			{
+				$term_region_link = get_tag_link( $term_region->term_id );
 						
-				$html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='px-3 py-1 bg-teal text-gray-200 inline-flex items-center justify-center mb-2 text-sm {$tag->slug}'>";
-				$html .= "{$tag->name}</a> ";
+				$html .= "<a href='{$term_region_link}' title='{$term_region->name} Tag' class='px-3 py-1 bg-yellow hover:bg-teal-lightest text-gray-800 inline-flex items-center justify-center mb-2 mr-2 text-sm {$term_region->slug}'>";
+				$html .= "{$term_region->name}</a>";
 			}
+			$html .= '</div>';
 			echo $html;
-		}
-		?>
+		} ?>
+
+		<?php
+		$terms_sector = get_the_terms( $post->ID, 'sector' );
+		if ( $terms_sector && ! is_wp_error( $terms_sector ) ) {
+			$html = '<div class="terms_sector inline-block">';
+			foreach ( $terms_sector as $term_sector ) 
+			{
+				$term_sector_link = get_tag_link( $term_sector->term_id );
+						
+				$html .= "<a href='{$term_sector_link}' title='{$term_sector->name} Tag' class='px-3 py-1 bg-yellow hover:bg-teal-lightest text-gray-800 inline-flex items-center justify-center mb-2 mr-2 text-sm {$term_sector->slug}'>";
+				$html .= "{$term_sector->name}</a>";
+			}
+			$html .= '</div>';
+			echo $html;
+		} ?>
 		<?php 
 		if ( $featured_image ) { 
 			the_title( '<h3 class="text-2xl font-semibold text-gray-100 leading-tight"><a href="'.esc_url( get_permalink() ).'" class="block group">', '</a></h2>' );

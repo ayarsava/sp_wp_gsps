@@ -147,12 +147,12 @@ get_header();
 <div id="gsp-in-action" class="relative bg-gray-100 pb-20">
     <div class="text-xl md:text-xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">GSPs in Action</div>
         
-    <!-- container slider -->
-        <?php wp_front_pilot(); ?>
+    <!-- Pilot list -->
+    <?php wp_front_pilot(); ?>
 
      <!-- container stories -->  
      <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto mt-10">
-        <div class="grid lg:grid-cols-4 lg:grid-rows-6 gap-4 fp-stories">
+        <div class="grid lg:grid-cols-4 gap-4 fp-stories">
             <?php wp_front_posts_per_category(6,'gsp-in-action',0); ?>
             <div href="#" class="flex flex-col justify-between bg-teal-light p-8 grid-rows-auto" title="Join the linkedIn Group">
                 <h4 class="text-large font-semibold text-gray-100 leading-tight">LinkedIn Group</h4>
@@ -181,6 +181,10 @@ get_header();
 <div id="migration-pathways" class="relative bg-gray-200 pt-16">
     <div class="text-xl md:text-2xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Migration Pathways</div>
     <img src="<?php echo get_template_directory_uri(); ?>/media/samples/sample-mapa.png" class="w-full">
+    <div class="pl-4 sm:px-8 lg:px-16 xl:px-20 py-4 bg-gray-300">
+    <a href="/see-methodology" title="See methodology" class="text-teal no-underline hover:text-teal-dark">
+        Lorem ipsum</a>
+    </div>
 </div>
 
 <?php

@@ -32,6 +32,7 @@ module.exports = {
       },
       borderColor: ['hover'],
     },
+    
   },
   variants: {
     extend: {

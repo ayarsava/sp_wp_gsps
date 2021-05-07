@@ -40,6 +40,62 @@ function wporg_register_taxonomy_component() {
 }
 add_action( 'init', 'wporg_register_taxonomy_component' );
 
+/** Register Region Taxonomy. **/
+/*** Used to filter by Posts, pages or resources ***/
+function wporg_register_taxonomy_region() {
+	$labels = array(
+		'name'              => _x( 'Regions', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Region', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search regions' ),
+		'all_items'         => __( 'All regions' ),
+		'parent_item'       => __( 'Region parent' ),
+		'parent_item_colon' => __( 'Region parent:' ),
+		'edit_item'         => __( 'Edit Region' ),
+		'update_item'       => __( 'Apdate Region' ),
+		'add_new_item'      => __( 'Add new Region' ),
+		'new_item_name'     => __( 'New Region' ),
+		'menu_name'         => __( 'Region' ),
+	);
+	$args   = array(
+		'hierarchical'      => true, // make it hierarchical (like categories).
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'show_in_rest'      => true,
+	);
+	register_taxonomy( 'region', array( 'resource', 'post', 'page' ), $args );
+}
+add_action( 'init', 'wporg_register_taxonomy_region' );
+
+/** Register Sector Taxonomy. **/
+/*** Used to filter by Posts, pages or resources ***/
+function wporg_register_taxonomy_sector() {
+	$labels = array(
+		'name'              => _x( 'Sectors', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Sector', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search sectors' ),
+		'all_items'         => __( 'All sectors' ),
+		'parent_item'       => __( 'Sector parent' ),
+		'parent_item_colon' => __( 'Sector parent:' ),
+		'edit_item'         => __( 'Edit Sector' ),
+		'update_item'       => __( 'Apdate Sector' ),
+		'add_new_item'      => __( 'Add new Sector' ),
+		'new_item_name'     => __( 'New Sector' ),
+		'menu_name'         => __( 'Sector' ),
+	);
+	$args   = array(
+		'hierarchical'      => true, // make it hierarchical (like categories).
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'show_in_rest'      => true,
+	);
+	register_taxonomy( 'sector', array( 'resource', 'post', 'page' ), $args );
+}
+add_action( 'init', 'wporg_register_taxonomy_sector' );
+
 
 /*** CPT Resources ***/
 function custom_post_type_resource() {
@@ -100,6 +156,133 @@ function custom_post_type_resource() {
 	register_post_type( 'resource', $args );
 }
 add_action( 'init', 'custom_post_type_resource', 0 );
+
+/*** META BOX ***/
+add_filter( 'rwmb_meta_boxes', 'mbox_register_meta_boxes' );
+function mbox_register_meta_boxes( $meta_boxes ) {
+  	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'mb_upload',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => __( 'Campos adicionales', 'mbox' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array('post','page','resource'),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'low',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		// List of meta fields
+		'fields'     => array(
+			//  PDF
+			array(
+				'id'               => 'mb_file',
+				'name'             => 'PDF File upload',
+				'type'             => 'file_upload',
+			
+				// Delete file from Media Library when remove it from post meta?
+				// Note: it might affect other posts if you use same file for multiple posts
+				'force_delete'     => false,
+			
+				// Maximum file uploads.
+				'max_file_uploads' => 2,
+			
+				// File types.
+				'mime_type'        => 'application',
+			
+				// Do not show how many files uploaded/remaining.
+				'max_status'       => false,
+			),
+			array (
+				'id' => 'text_1',
+				'type' => 'text',
+				'name' => 'Source Title',
+				'size' => 50,
+				'clone' => 1,
+				'sort_clone' => 1,
+			),
+			array (
+				'id' => 'url_1',
+				'type' => 'url',
+				'name' => 'Source URL',
+				'size' => 50,
+				'clone' => 1,
+				'sort_clone' => 1,
+			),
+		)
+	);
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'mb_post',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => __( 'Pilot additional fields', 'mbox' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array('post'),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'low',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		
+		// List of meta fields
+		'fields'     => array(
+			array(
+				'name'             => 'Pilot Header Image Upload',
+				'id'               => 'pilot_header',
+				'type'             => 'image',
+				'link'			   => true,
+			
+				// Delete image from Media Library when remove it from post meta?
+				// Note: it might affect other posts if you use same image for multiple posts
+				'force_delete'     => false,
+			
+				// Maximum image uploads
+				'max_file_uploads' => 1,
+			),
+		)
+	);
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'mb_quote',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => __( 'Quote additional fields', 'mbox' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array('post'),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'low',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		
+		// List of meta fields
+		'fields'     => array(
+			array(
+				'name' => 'Clickable',
+				'id'   => 'with_link',
+				'type' => 'checkbox',
+				'std'  => 0, // 0 or 1
+			),
+			array (
+				'id' => 'quoter_name',
+				'type' => 'text',
+				'name' => 'Quoter name/s',
+				'size' => 50,
+			),
+			array (
+				'id' => 'quoter_position',
+				'type' => 'text',
+				'name' => 'Position',
+				'size' => 50,
+			),
+		)
+	);
+	return $meta_boxes;
+}
+
+
 
 /*** Show posts on Home filtered by posts per page, category and offset ***/
 if ( ! function_exists( 'wp_front_posts_per_category' ) ) {
@@ -245,4 +428,75 @@ function pagination_bar( $custom_query ) {
             'total' => $total_pages,
         ));
     }
+}
+
+add_action('wp_ajax_myfilter', 'gsps_filter_function'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_myfilter', 'gsps_filter_function');
+
+function gsps_filter_function(){
+	$posts_per_page = -1;
+	$args = array(
+		'post_type'=>array('post','resource'),
+		'post_status'=>'publish',
+		'posts_per_page' => $posts_per_page,
+		'orderby'=> 'post_date', 
+    	'order' => 'ASC',
+		'tax_query' => array(
+			'relation' => 'AND', 
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'slug',
+				'terms'    => [ 'pilot' ],
+				'operator' => 'NOT IN'
+			),
+		)
+	);
+	if( !empty( $_POST['regionFilter'] ) ||  !empty( $_POST['sectorFilter']) ) {
+		$relation = 'OR';
+		if(!empty($_POST['regionFilter']) && isset( $_POST['sectorFilter'] )) {
+			$relation = 'OR';
+			if(!empty($_POST['regionFilter']) && !empty( $_POST['sectorFilter'] )) {
+				$relation = 'AND';
+			}
+		}
+		
+		if( isset( $_POST['regionFilter'] ) ||  isset( $_POST['sectorFilter']) ) {
+			$args['tax_query'] = array(
+				'relation' => 'AND', 
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'slug',
+					'terms'    => [ 'pilot' ],
+					'operator' => 'NOT IN'
+				),
+				array(
+					'relation' => $relation, 
+					array(
+						'taxonomy' => 'sector',
+						'field' => 'id',
+						'terms' => $_POST['sectorFilter']
+					),
+					array(
+						'taxonomy' => 'region',
+						'field' => 'id',
+						'terms' => $_POST['regionFilter'],
+					),
+				),
+			);
+		};
+	}
+	
+	$query = new WP_Query( $args );
+
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
+			get_template_part( 'template-parts/content', 'card' );
+		endwhile;
+		
+		wp_reset_postdata();
+	else :
+		echo 'There are no posts for this specific search.';
+	endif;
+
+	wp_die();
 }
