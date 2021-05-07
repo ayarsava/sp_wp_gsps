@@ -18,7 +18,7 @@ General Setup
 ---------------
 
 * Activate plugin `gsps` included on project repository
-* Instal and activate plugins `Meta Box`, `Simple Custom Post Order` included in WP public library
+* Instal and activate plugins `Meta Box`, `Simple Custom Post Order`, `Accordion Blocks`, `Disable Comments` included in WP public library
 * Activate theme `GSPs` included on project repository
 
 
