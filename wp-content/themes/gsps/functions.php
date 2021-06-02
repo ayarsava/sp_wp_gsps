@@ -191,3 +191,24 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Add Your Menu Locations
+function register_my_menus() {
+	register_nav_menus(
+		array(
+			'mobile_nav' => __( 'Mobile' )
+		)
+	);
+}
+add_action( 'init', 'register_my_menus' );
+
+function wpdocs_menu_item_class( $classes, $item, $args ) {
+    if ( 'menu-1' === $args->theme_location ) {
+        $classes[] = 'border-b-2 border-transparent hover:border-yellow pb-0';
+    }
+	if ( 'mobile_nav' === $args->theme_location ) {
+        $classes[] = 'py-4 hover:text-teal';
+    }
+ 
+    return $classes;
+}
+add_action( 'nav_menu_css_class', 'wpdocs_menu_item_class', 10, 3 );

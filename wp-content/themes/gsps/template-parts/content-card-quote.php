@@ -14,7 +14,7 @@
 	$quoter_position = rwmb_meta( 'quoter_position' );
 	$url = get_permalink();
 ?>
-<!-- BEG QUOTE CARD--><div class="bg-yellow p-7 pt-5 relative col-span-3 md:col-span-1 min-h-full h-80">
+<!-- BEG QUOTE CARD--><div class="bg-yellow p-7 pt-5 relative col-span-3 md:col-span-1 min-h-80 h-auto">
 <?php 
 	if( $with_link == 1 ) {
 		echo '<a href="'. $url .'" title="' .get_the_title().'" class="stretched-link"></a>';

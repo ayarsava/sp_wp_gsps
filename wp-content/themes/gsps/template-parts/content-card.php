@@ -11,7 +11,7 @@
 
 <?php 
 	// If is not Resource
-	if ( 'post' === get_post_type() ) {
+	if ( 'post' === get_post_type() || 'legalpathway' === get_post_type() ) {
 		// If category is quote
 		if (has_category('quote',$post->ID)) {
 			get_template_part( 'template-parts/content', 'card-quote' );
@@ -21,12 +21,12 @@
 				if (has_category('featured',$post->ID)) {
 					get_template_part( 'template-parts/content', 'card-featured' );
 				}
-			//if is not featured post
-			else {
-				get_template_part( 'template-parts/content', 'card-standard' );
-			} 
+				//if is not featured post
+				else {
+					get_template_part( 'template-parts/content', 'card-standard' );
+				} 
 			} else {
-				get_template_part( 'template-parts/content', 'card-resource' );
+				get_template_part( 'template-parts/content', 'card-standard' );
 			} 
 		}
 	} elseif ( 'resource' === get_post_type() ) {

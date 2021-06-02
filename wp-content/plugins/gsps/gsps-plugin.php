@@ -18,14 +18,14 @@ function wporg_register_taxonomy_component() {
 	$labels = array(
 		'name'              => _x( 'Components', 'taxonomy general name' ),
 		'singular_name'     => _x( 'Component', 'taxonomy singular name' ),
-		'search_items'      => __( 'Buscar components' ),
-		'all_items'         => __( 'Todos los tipos de component' ),
+		'search_items'      => __( 'Search components' ),
+		'all_items'         => __( 'All tipos de component' ),
 		'parent_item'       => __( 'Component padre' ),
 		'parent_item_colon' => __( 'Component padre:' ),
-		'edit_item'         => __( 'Editar Component' ),
-		'update_item'       => __( 'Actualizar Component' ),
-		'add_new_item'      => __( 'Agregar nueva Component' ),
-		'new_item_name'     => __( 'Nuevo Component' ),
+		'edit_item'         => __( 'Edit Component' ),
+		'update_item'       => __( 'Update Component' ),
+		'add_new_item'      => __( 'Add new Component' ),
+		'new_item_name'     => __( 'New Component' ),
 		'menu_name'         => __( 'Component' ),
 	);
 	$args   = array(
@@ -64,7 +64,7 @@ function wporg_register_taxonomy_region() {
 		'query_var'         => true,
 		'show_in_rest'      => true,
 	);
-	register_taxonomy( 'region', array( 'resource', 'post', 'page' ), $args );
+	register_taxonomy( 'region', array( 'resource', 'post', 'page', 'legalpathway' ), $args );
 }
 add_action( 'init', 'wporg_register_taxonomy_region' );
 
@@ -92,7 +92,7 @@ function wporg_register_taxonomy_sector() {
 		'query_var'         => true,
 		'show_in_rest'      => true,
 	);
-	register_taxonomy( 'sector', array( 'resource', 'post', 'page' ), $args );
+	register_taxonomy( 'sector', array( 'resource', 'post', 'page', 'legalpathway' ), $args );
 }
 add_action( 'init', 'wporg_register_taxonomy_sector' );
 
@@ -104,16 +104,16 @@ function custom_post_type_resource() {
 		'name'               => _x( 'Resources', 'Post Type General Name', 'gsps-plugin' ),
 		'singular_name'      => _x( 'Resource', 'Post Type Singular Name', 'gsps-plugin' ),
 		'menu_name'          => __( 'Resources', 'gsps-plugin' ),
-		'parent_item_colon'  => __( 'Resource padre', 'gsps-plugin' ),
-		'all_items'          => __( 'Todos los resources', 'gsps-plugin' ),
-		'view_item'          => __( 'Ver Resource', 'gsps-plugin' ),
-		'add_new_item'       => __( 'Agregar nuevo Resource', 'gsps-plugin' ),
-		'add_new'            => __( 'Agregar nuevo', 'gsps-plugin' ),
-		'edit_item'          => __( 'Editar Resource', 'gsps-plugin' ),
-		'update_item'        => __( 'Actualizar Resource', 'gsps-plugin' ),
-		'search_items'       => __( 'Buscar Resource', 'gsps-plugin' ),
-		'not_found'          => __( 'No encontrado', 'gsps-plugin' ),
-		'not_found_in_trash' => __( 'No encontrado en la papelera', 'gsps-plugin' ),
+		'parent_item_colon'  => __( 'Parent Resource', 'gsps-plugin' ),
+		'all_items'          => __( 'All resources', 'gsps-plugin' ),
+		'view_item'          => __( 'View Resource', 'gsps-plugin' ),
+		'add_new_item'       => __( 'Add new Resource', 'gsps-plugin' ),
+		'add_new'            => __( 'Add new', 'gsps-plugin' ),
+		'edit_item'          => __( 'Edit Resource', 'gsps-plugin' ),
+		'update_item'        => __( 'Update Resource', 'gsps-plugin' ),
+		'search_items'       => __( 'Search Resource', 'gsps-plugin' ),
+		'not_found'          => __( 'Not found', 'gsps-plugin' ),
+		'not_found_in_trash' => __( 'Not found on Trash', 'gsps-plugin' ),
 	);
 
 	// Set other options for Custom Post Type.
@@ -157,6 +157,68 @@ function custom_post_type_resource() {
 }
 add_action( 'init', 'custom_post_type_resource', 0 );
 
+
+/*** CPT Resources ***/
+function custom_post_type_legalpathway() {
+	// Set UI labels for Custom Post Type.
+	$labels = array(
+		'name'               => _x( 'Legal Pathways', 'Post Type General Name', 'gsps-plugin' ),
+		'singular_name'      => _x( 'Legal Pathways', 'Post Type Singular Name', 'gsps-plugin' ),
+		'menu_name'          => __( 'Legal Pathways', 'gsps-plugin' ),
+		'parent_item_colon'  => __( 'Legal Pathways padre', 'gsps-plugin' ),
+		'all_items'          => __( 'All Legal Pathways', 'gsps-plugin' ),
+		'view_item'          => __( 'View Legal Pathways', 'gsps-plugin' ),
+		'add_new_item'       => __( 'Add new Legal Pathways', 'gsps-plugin' ),
+		'add_new'            => __( 'Add new', 'gsps-plugin' ),
+		'edit_item'          => __( 'Edit Legal Pathways', 'gsps-plugin' ),
+		'update_item'        => __( 'Update Legal Pathways', 'gsps-plugin' ),
+		'search_items'       => __( 'Search Legal Pathways', 'gsps-plugin' ),
+		'not_found'          => __( 'Not found', 'gsps-plugin' ),
+		'not_found_in_trash' => __( 'Not found on Trash', 'gsps-plugin' ),
+	);
+
+	// Set other options for Custom Post Type.
+	$args = array(
+		'label'               => __( 'legalpathway', 'gsps-plugin' ),
+		'description'         => __( 'Legal Pathway', 'gsps-plugin' ),
+		'labels'              => $labels,
+		// Features this CPT supports in Post Editor.
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
+		// You can associate this CPT with a taxonomy or custom taxonomy.
+		'taxonomies'          => array( 'post_tag'),
+
+		/**
+		* A hierarchical CPT is like Pages and can have
+		* Parent and child items. A non-hierarchical CPT
+		* is like Posts.
+		*/
+		'hierarchical'        => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 16,
+		'can_export'          => true,
+		'public'              => true,
+		'has_archive'         => true,
+		'rewrite'             => array(
+			'slug' => 'legalpathway',
+		),
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+		'show_in_rest'        => true,
+		'menu_icon'           => 'dashicons-admin-links',
+		'with_front'          => false,
+		'timestamp'           => true,
+	);
+
+	// Registering your Custom Post Type.
+	register_post_type( 'legalpathway', $args );
+}
+add_action( 'init', 'custom_post_type_legalpathway', 0 );
+
+
 /*** META BOX ***/
 add_filter( 'rwmb_meta_boxes', 'mbox_register_meta_boxes' );
 function mbox_register_meta_boxes( $meta_boxes ) {
@@ -164,9 +226,9 @@ function mbox_register_meta_boxes( $meta_boxes ) {
 		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
 		'id'         => 'mb_upload',
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title'      => __( 'Campos adicionales', 'mbox' ),
+		'title'      => __( 'Additional fields', 'mbox' ),
 		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
-		'post_types' => array('post','page','resource'),
+		'post_types' => array('post','page','legalpathway'),
 		// Where the meta box appear: normal (default), advanced, side. Optional.
 		'context'    => 'normal',
 		// Order of meta box: high (default), low. Optional.
@@ -175,6 +237,18 @@ function mbox_register_meta_boxes( $meta_boxes ) {
 		'autosave'   => true,
 		// List of meta fields
 		'fields'     => array(
+			array (
+				'id' => 'story_author',
+				'type' => 'text',
+				'name' => 'Story author name',
+				'size' => 50,
+			),
+			array (
+				'id' => 'story_link',
+				'type' => 'text',
+				'name' => 'Story author link',
+				'size' => 50,
+			),
 			//  PDF
 			array(
 				'id'               => 'mb_file',
@@ -231,8 +305,7 @@ function mbox_register_meta_boxes( $meta_boxes ) {
 			array(
 				'name'             => 'Pilot Header Image Upload',
 				'id'               => 'pilot_header',
-				'type'             => 'image',
-				'link'			   => true,
+				'type'             => 'image_advanced',
 			
 				// Delete image from Media Library when remove it from post meta?
 				// Note: it might affect other posts if you use same image for multiple posts
@@ -240,6 +313,9 @@ function mbox_register_meta_boxes( $meta_boxes ) {
 			
 				// Maximum image uploads
 				'max_file_uploads' => 1,
+				'image_size'       => 'thumbnail',
+				'label_description' => 'When possible, please use an image that is 1280 pixels wide x 680
+				pixels tall.',
 			),
 		)
 	);
@@ -276,6 +352,117 @@ function mbox_register_meta_boxes( $meta_boxes ) {
 				'type' => 'text',
 				'name' => 'Position',
 				'size' => 50,
+			),
+		)
+	);
+
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'mb_legalpathways',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => __( 'Legal pathways additional fields', 'mbox' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array('legalpathway'),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'low',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		
+		// List of meta fields
+		'fields'     => array(
+			array (
+				'id' => 'mb_cod',
+				'type' => 'text',
+				'name' => 'Country of destination',
+			),
+			array (
+				'id' => 'mb_coo',
+				'type' => 'text',
+				'name' => 'Country of origin',
+			),
+			array (
+				'id' => 'mb_skill',
+				'type' => 'text',
+				'name' => 'Skill level',
+			),
+			array (
+				'id' => 'mb_timeline',
+				'type' => 'text',
+				'name' => 'Timeline',
+			),
+			array (
+				'id' => 'mb_beneficiaries',
+				'type' => 'text',
+				'name' => 'Number of beneficiaries',
+			),
+		)
+	);
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'mb_legalpathways',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => __( 'Legal pathways additional fields', 'mbox' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array('legalpathway'),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'low',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		
+		// List of meta fields
+		'fields'     => array(
+			array (
+				'id' => 'mb_cod',
+				'type' => 'text',
+				'name' => 'Country of destination',
+			),
+			array (
+				'id' => 'mb_coo',
+				'type' => 'text',
+				'name' => 'Country of origin',
+			),
+			array (
+				'id' => 'mb_skill',
+				'type' => 'text',
+				'name' => 'Skill level',
+			),
+			array (
+				'id' => 'mb_timeline',
+				'type' => 'text',
+				'name' => 'Timeline',
+			),
+			array (
+				'id' => 'mb_beneficiaries',
+				'type' => 'text',
+				'name' => 'Number of beneficiaries',
+			),
+		)
+	);
+	$meta_boxes[] = array(
+		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
+		'id'         => 'mb_resource',
+		// Meta box title - Will appear at the drag and drop handle bar. Required.
+		'title'      => __( 'Resource additional fields', 'mbox' ),
+		// Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+		'post_types' => array('resource'),
+		// Where the meta box appear: normal (default), advanced, side. Optional.
+		'context'    => 'normal',
+		// Order of meta box: high (default), low. Optional.
+		'priority'   => 'low',
+		// Auto save: true, false (default). Optional.
+		'autosave'   => true,
+		
+		// List of meta fields
+		'fields'     => array(
+			array (
+				'id'   => 'resource_url',
+				'type' => 'url', // New HTML 5 input type
+				'name' => 'Url',
+				'label_description' => 'Enter url to redirect to.'
 			),
 		)
 	);
@@ -325,7 +512,7 @@ if ( ! function_exists( 'wp_front_pilot' ) ) {
 					get_template_part( 'template-parts/content', 'card-pilot' );
 					endwhile;
 				echo '</div></div>';
-				echo '<!-- Add Arrows --><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div>';
+				echo '<!-- Add Arrows --><div class="swiper-button-next z-40"></div><div class="swiper-button-prev z-40"></div></div>';
 			} else {
 				echo '<div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto"><div class="grid lg:grid-cols-3 lg:grid-rows-1 gap-4">';
 				while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
@@ -333,7 +520,6 @@ if ( ! function_exists( 'wp_front_pilot' ) ) {
 				endwhile;
 				echo '</div></div>';
 			}
-			
 		}
 	}
 }
@@ -353,6 +539,81 @@ if ( ! function_exists( 'wp_front_resources' ) ) {
 			while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
 			get_template_part( 'template-parts/content', 'card' );
 			endwhile;
+		}
+	}
+}
+
+/*** Show Pilots on Home slider ***/
+if ( ! function_exists( 'wp_related_content' ) ) {
+	function wp_related_content() {
+		//Get array of terms
+		//$terms_sector = get_the_terms( $post->ID , 'sector');
+		//$terms_region = get_the_terms( $post->ID , 'region');
+		// $terms_cat = get_the_terms( $post->ID , 'category');
+		//Pluck out the IDs to get an array of IDS
+		/*if ( ! empty( $terms_sector ) && ! is_wp_error( $terms_sector ) ) {
+			$term_sector_ids = wp_list_pluck($terms_sector,'term_id');
+		}
+		if ( ! empty( $terms_region ) && ! is_wp_error( $terms_region ) ) {
+			$term_region_ids = wp_list_pluck($terms_region,'term_id');
+		}
+		if ( ! empty( $terms_cat ) && ! is_wp_error( $terms_cat ) ) {
+			$term_cat_ids = wp_list_pluck($terms_cat,'term_id');
+		}*/
+
+		
+		$sectors = get_the_terms( get_the_ID(), 'sector' );
+		foreach ( $sectors as $sector ) {
+			$sector_ids[] = $sector->term_id;
+		}
+		$regions = get_the_terms( get_the_ID(), 'region' );
+		foreach ( $regions as $region ) {
+			$region_ids[] = $region->term_id;
+		}
+		
+		$args = array(
+			'post_type' => array('post','resource','legalpathway'),
+			'post_status'    => 'publish',
+			'posts_per_page' => 8, // Get all posts
+			'post__not_in'   => array( get_the_ID() ), // Hide current post in list of related content
+			'tax_query'      => array(
+				'relation' => 'OR', // Make sure to mach both category and term
+				array(
+					'taxonomy' => 'sector',
+					'field'    => 'term_id',
+					'terms'    => $sector_ids,
+				),
+				array(
+					'taxonomy' => 'region',
+					'field'    => 'term_id',
+					'terms'    => $region_ids,
+				),
+			),
+			'orderby' => 'date',
+		);
+		$query_ppc = new WP_Query( $args );
+		$count = $query_ppc->post_count;
+		if ( $query_ppc->have_posts() ) { 
+			echo '<div id="related-content" class="relative bg-gray-100 py-20"><div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-32 md:-left-2 mb-10"><div class="text-base font-semibold">Related content</div></div>';
+			if ($count > 3) {
+				echo '<div class="relative w-full pl-4 sm:px-8 lg:px-16 xl:px-20 mx-auto overflow-hidden"><div class="swiper-container"><div class="swiper-wrapper">';
+					while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
+					get_template_part( 'template-parts/content', 'card-generic' );
+					endwhile; wp_reset_postdata(); 
+				echo '</div></div>';
+				echo '<!-- Add Arrows --><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div>';
+			} else {
+				echo '<div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto"><div class="grid lg:grid-cols-3 lg:grid-rows-1 gap-4">';
+				while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
+				get_template_part( 'template-parts/content', 'card-generic' );
+				endwhile; wp_reset_postdata(); 
+				echo '</div></div>';
+			}
+			echo '</div>';
+		} else {
+			echo '<div id="related-content" class="relative bg-gray-100 py-20"><div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-32 md:-left-2 mb-10"><div class="text-base font-semibold">Related content</div></div>';
+			wp_front_pilot();
+			echo '</div>';
 		}
 	}
 }
@@ -436,7 +697,7 @@ add_action('wp_ajax_nopriv_myfilter', 'gsps_filter_function');
 function gsps_filter_function(){
 	$posts_per_page = -1;
 	$args = array(
-		'post_type'=>array('post','resource'),
+		'post_type'=>array('post','resource','legalpathway'),
 		'post_status'=>'publish',
 		'posts_per_page' => $posts_per_page,
 		'orderby'=> 'post_date', 
@@ -500,3 +761,4 @@ function gsps_filter_function(){
 
 	wp_die();
 }
+

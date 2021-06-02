@@ -30,14 +30,7 @@ get_header();
 	</main><!-- #main -->
 
 	<!-- GSP in Action-->
-	<div id="related-content" class="relative bg-gray-100 py-20">
-		<div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-32 md:-left-2 mb-10">
-			<div class="text-base font-semibold">Related content</div>
-		</div>
-
-		<!-- Pilot list -->
-		<?php wp_front_pilot(); ?>
-	</div>
+	<?php wp_related_content();?>
 
 <?php
 get_footer();

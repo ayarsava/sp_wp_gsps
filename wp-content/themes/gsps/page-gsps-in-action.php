@@ -30,7 +30,7 @@ get_header();
         
         <div id="stories-and-more" class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto mb-4 pt-10">
         <hr>
-            <h2 class="entry-title text-2xl font-extrabold text-left text-gray-900 md:text-4xl md:leading-tight mt-10">Stories and more</h2>
+            <h2 class="entry-title text-2xl font-extrabold text-left text-gray-900 md:text-4xl md:leading-tight mt-10">Resources</h2>
             
             <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
                 <?php
@@ -66,7 +66,7 @@ get_header();
                 <?php 
                 $posts_per_page = -1;
                 $args = array(
-                    'post_type'=>array('post','resource'),
+                    'post_type'=>array('post','resource','legalpathway'),
                     'post_status'=>'publish',
                     'posts_per_page' => $posts_per_page,
                     'orderby'=> 'post_date', 
@@ -89,7 +89,7 @@ get_header();
                     endwhile;
                     wp_reset_postdata();
                 else :
-                    echo 'No posts found';
+                    echo 'There are no posts for this specific search';
                 endif;
                 ?>
             </div>

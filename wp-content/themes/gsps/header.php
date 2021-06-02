@@ -43,10 +43,16 @@
 
 					<!-- Navbar -->
 					<navbar class="navbar flex-grow hidden lg:block flex-grow-0 p-4">
-						<ul class="flex space-x-8 text-sm font-semibold text-gray-100">
-							<li><a href="/gsps-in-action/" class="border-b-2 border-transparent hover:border-yellow pb-2">GSPs in Action</a></li>
-							<li><a href="/#migration-pathways" class="border-b-2 border-transparent hover:border-yellow pb-2">Migration Pathways</a></li>
-						</ul>
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+								'container'		 => false,
+								'menu_class'	 => 'flex space-x-8 text-sm font-semibold text-gray-100'
+							)
+						);
+					?>
 					</navbar>
 
 					<!-- mobile toggle -->
@@ -110,23 +116,17 @@
 						<path d="M6 18L18 6M6 6l12 12"></path>
 				</svg>
 				</button>
-			</div><!--
+			</div>
 			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>-->
-			<ul class="divide-y">
-				<li><a href="/gsps-in-action/" class="my-4 inline-block hover:text-teal">GSPs in Action</a></li>
-				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Migration Pathways</a></li>
-				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Learn More</a></li>
-				<li><a href="/#migration-pathways" class="my-4 inline-block hover:text-teal">Start a GSP</a></li>
-				<li><button class="my-4 inline-block hover:text-teal" @click=" openSearch = true" @keydown.escape=" openSearch = false">Search</button></li>
-			</ul>
-			
+				wp_nav_menu(
+					array(
+						'theme_location' => 'mobile_nav',
+						'menu_id'        => 'mobile',
+						'container'		 => false,
+						'menu_class'	 => 'divide-y'
+					)
+				);
+			?>
 
 			<!-- follow us -->
 			<div class="follow mt-10">
