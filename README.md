@@ -41,7 +41,7 @@ Content
 ### Simple mode (importer)
 
 You will be able to carry out an import of the initial profile of the project, which will create the categories, articles, menu items, etc. This is an easy way to initialize the project, although it will require removing those test run items that are generated automatically.
-The file gsp.WordPress.2021-05-07.xml is attached with the content updated as of May 7, 2021.
+The file gsp.WordPress.2021-06-03.xml is attached with the content updated as of June 3, 2021.
 
 ### Manual mode
 
