@@ -154,8 +154,8 @@ get_header();
      <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto mt-10">
         <div class="grid lg:grid-cols-4 gap-4 fp-stories">
             <?php wp_front_posts_per_category(6,'gsp-in-action',0); ?>
-            <div href="#" class="flex flex-col justify-between bg-teal-light p-8 grid-rows-auto" title="Join the linkedIn Group">
-                <h4 class="text-large font-semibold text-gray-100 leading-tight">LinkedIn Group</h4>
+            <div href="#" class="flex flex-col justify-between bg-teal-light p-8 col-span-3 md:col-span-1" title="Join the linkedIn Group">
+                <h4 class="text-large font-semibold text-gray-100 leading-tight mb-4">LinkedIn Group</h4>
 
                 <a class="px-4 py-3 border border-light-blue-500 border-opacity-40 text-center text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900" href="#">Join the conversation</a>
             </div>
@@ -180,7 +180,7 @@ get_header();
 
 <div id="migration-pathways" class="relative bg-gray-200 pt-16">
     <div class="text-xl md:text-2xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Migration Pathways</div>
-    <img src="<?php echo get_template_directory_uri(); ?>/media/samples/sample-mapa.png" class="w-full">
+    <div data-pym-src="https://sociopublico.github.io/global-skills-map"></div>
     <div class="pl-4 sm:px-8 lg:px-16 xl:px-20 py-4 bg-gray-300">
     <a href="/see-methodology" title="See methodology" class="text-teal no-underline hover:text-teal-dark">
         Lorem ipsum</a>

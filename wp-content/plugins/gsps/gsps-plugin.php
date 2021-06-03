@@ -762,3 +762,11 @@ function gsps_filter_function(){
 	wp_die();
 }
 
+// Enqueue scripts to Front Page
+function gsps_enqueue_front_page_scripts() {
+    if( is_front_page() )
+    {
+        wp_enqueue_script( 'global-skills-map', 'https://sociopublico.github.io/global-skills-map/pym.v1.min.js', array( 'jquery' ), null, true );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'gsps_enqueue_front_page_scripts' );
