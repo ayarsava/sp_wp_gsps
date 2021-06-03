@@ -563,12 +563,16 @@ if ( ! function_exists( 'wp_related_content' ) ) {
 
 		
 		$sectors = get_the_terms( get_the_ID(), 'sector' );
-		foreach ( $sectors as $sector ) {
-			$sector_ids[] = $sector->term_id;
+		if ( $sectors && ! is_wp_error( $sectors ) ) {
+			foreach ( $sectors as $sector ) {
+				$sector_ids[] = $sector->term_id;
+			}
 		}
-		$regions = get_the_terms( get_the_ID(), 'region' );
-		foreach ( $regions as $region ) {
-			$region_ids[] = $region->term_id;
+		if ( $regions && ! is_wp_error( $regions ) ) {
+			$regions = get_the_terms( get_the_ID(), 'region' );
+			foreach ( $regions as $region ) {
+				$region_ids[] = $region->term_id;
+			}
 		}
 		
 		$args = array(
@@ -594,7 +598,7 @@ if ( ! function_exists( 'wp_related_content' ) ) {
 		$query_ppc = new WP_Query( $args );
 		$count = $query_ppc->post_count;
 		if ( $query_ppc->have_posts() ) { 
-			echo '<div id="related-content" class="relative bg-gray-100 py-20"><div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-32 md:-left-2 mb-10"><div class="text-base font-semibold">Related content</div></div>';
+			echo '<div id="related-content" class="relative bg-gray-100 py-20"><div class="text-xl md:text-xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Related content</div>';
 			if ($count > 3) {
 				echo '<div class="relative w-full pl-4 sm:px-8 lg:px-16 xl:px-20 mx-auto overflow-hidden"><div class="swiper-container"><div class="swiper-wrapper">';
 					while ( $query_ppc->have_posts() ) : $query_ppc->the_post();
