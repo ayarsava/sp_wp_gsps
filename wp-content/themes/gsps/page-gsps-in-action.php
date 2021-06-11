@@ -64,13 +64,15 @@ get_header();
             </form>
             <div id="response" class="grid grid-cols-1 md:grid-cols-3 gap-4 py-10">
                 <?php 
-                $posts_per_page = -1;
+                $posts_per_page = 9;
+                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
                 $args = array(
                     'post_type'=>array('post','resource','legalpathway'),
                     'post_status'=>'publish',
                     'posts_per_page' => $posts_per_page,
                     'orderby'=> 'post_date', 
                     'order' => 'ASC',
+                    'paged'          => $paged,
                     'tax_query' => [
                         [
                             'taxonomy' => 'category',
@@ -93,6 +95,11 @@ get_header();
                 endif;
                 ?>
             </div>
+            <?php
+                echo '<nav class="pagination mx-auto w-full text-center">';
+                    pagination_bar( $query );
+                echo '</nav>';
+            ?>
             
         </div>
     </main><!-- #main -->

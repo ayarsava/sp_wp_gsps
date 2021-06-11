@@ -171,7 +171,7 @@ get_header();
     <!-- container stories -->  
     <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
         <div class="grid grid-cols-3 gap-4">
-            <?php wp_front_resources(); ?>
+            <?php wp_front_resources(3); ?>
         </div>
     </div>
 </div>

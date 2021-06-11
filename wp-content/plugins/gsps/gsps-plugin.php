@@ -526,11 +526,11 @@ if ( ! function_exists( 'wp_front_pilot' ) ) {
 
 /*** Show Resources on Home grid ***/
 if ( ! function_exists( 'wp_front_resources' ) ) {
-	function wp_front_resources() {
+	function wp_front_resources($ppp) {
 		$args = array(
 			'post_type'              => 'resource',
 			'post_status'            => 'publish',
-			'posts_per_page'         => 6,
+			'posts_per_page'         => $ppp,
 			'no_found_rows'          => true,
 		);
 		// The Query
@@ -546,21 +546,6 @@ if ( ! function_exists( 'wp_front_resources' ) ) {
 /*** Show Pilots on Home slider ***/
 if ( ! function_exists( 'wp_related_content' ) ) {
 	function wp_related_content() {
-		//Get array of terms
-		//$terms_sector = get_the_terms( $post->ID , 'sector');
-		//$terms_region = get_the_terms( $post->ID , 'region');
-		// $terms_cat = get_the_terms( $post->ID , 'category');
-		//Pluck out the IDs to get an array of IDS
-		/*if ( ! empty( $terms_sector ) && ! is_wp_error( $terms_sector ) ) {
-			$term_sector_ids = wp_list_pluck($terms_sector,'term_id');
-		}
-		if ( ! empty( $terms_region ) && ! is_wp_error( $terms_region ) ) {
-			$term_region_ids = wp_list_pluck($terms_region,'term_id');
-		}
-		if ( ! empty( $terms_cat ) && ! is_wp_error( $terms_cat ) ) {
-			$term_cat_ids = wp_list_pluck($terms_cat,'term_id');
-		}*/
-
 		
 		$sectors = get_the_terms( get_the_ID(), 'sector' );
 		if ( $sectors && ! is_wp_error( $sectors ) ) {
@@ -678,94 +663,22 @@ function auto_id_headings( $content ) {
 add_filter( 'the_content', 'auto_id_headings' );
 
 
-function pagination_bar( $custom_query ) {
+function pagination_bar( $query ) {
 
-    $total_pages = $custom_query->max_num_pages;
+    $total_pages = $query->max_num_pages;
     $big = 999999999; // need an unlikely integer
 
     if ($total_pages > 1){
         $current_page = max(1, get_query_var('paged'));
 
         echo paginate_links(array(
-            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ).'#stories-and-more',
             'format' => '?paged=%#%',
             'current' => $current_page,
             'total' => $total_pages,
         ));
     }
 }
-
-add_action('wp_ajax_myfilter', 'gsps_filter_function'); // wp_ajax_{ACTION HERE} 
-add_action('wp_ajax_nopriv_myfilter', 'gsps_filter_function');
-
-function gsps_filter_function(){
-	$posts_per_page = -1;
-	$args = array(
-		'post_type'=>array('post','resource','legalpathway'),
-		'post_status'=>'publish',
-		'posts_per_page' => $posts_per_page,
-		'orderby'=> 'post_date', 
-    	'order' => 'ASC',
-		'tax_query' => array(
-			'relation' => 'AND', 
-			array(
-				'taxonomy' => 'category',
-				'field'    => 'slug',
-				'terms'    => [ 'pilot' ],
-				'operator' => 'NOT IN'
-			),
-		)
-	);
-	if( !empty( $_POST['regionFilter'] ) ||  !empty( $_POST['sectorFilter']) ) {
-		$relation = 'OR';
-		if(!empty($_POST['regionFilter']) && isset( $_POST['sectorFilter'] )) {
-			$relation = 'OR';
-			if(!empty($_POST['regionFilter']) && !empty( $_POST['sectorFilter'] )) {
-				$relation = 'AND';
-			}
-		}
-		
-		if( isset( $_POST['regionFilter'] ) ||  isset( $_POST['sectorFilter']) ) {
-			$args['tax_query'] = array(
-				'relation' => 'AND', 
-				array(
-					'taxonomy' => 'category',
-					'field'    => 'slug',
-					'terms'    => [ 'pilot' ],
-					'operator' => 'NOT IN'
-				),
-				array(
-					'relation' => $relation, 
-					array(
-						'taxonomy' => 'sector',
-						'field' => 'id',
-						'terms' => $_POST['sectorFilter']
-					),
-					array(
-						'taxonomy' => 'region',
-						'field' => 'id',
-						'terms' => $_POST['regionFilter'],
-					),
-				),
-			);
-		};
-	}
-	
-	$query = new WP_Query( $args );
-
-	if( $query->have_posts() ) :
-		while( $query->have_posts() ): $query->the_post();
-			get_template_part( 'template-parts/content', 'card' );
-		endwhile;
-		
-		wp_reset_postdata();
-	else :
-		echo 'There are no posts for this specific search.';
-	endif;
-
-	wp_die();
-}
-
 // Enqueue scripts to Front Page
 function gsps_enqueue_front_page_scripts() {
     if( is_front_page() )
