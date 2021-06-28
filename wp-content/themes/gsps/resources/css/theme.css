@@ -170,7 +170,7 @@ div[class*="list-"] {
             content: '';
             position: absolute;
             top: -60px;
-            left: 0;
+            left:0;
             background: #FFBB30;
             width: 90px;
             height: 150px;
@@ -179,6 +179,11 @@ div[class*="list-"] {
             border-bottom-right-radius: 200px;
             border-bottom: 0;
             margin-right: 1rem;
+            @media (max-width: 480px) {
+                top: -35px;
+                width: 50px;
+                height: 100px;
+            }
         }
         &:after {
             position: absolute;
@@ -188,8 +193,20 @@ div[class*="list-"] {
             font-weight: 700;
         }
     }
-    > div > *:not(figure) {
-        padding-left:150px;
+    > div {
+        > *:not(figure) {
+            padding-left:0px;
+            @media (min-width: 480px) {
+                padding-left:150px;
+                margin-bottom: 40px;
+            }
+        }
+        > [id] {
+            @media (max-width: 480px) {
+                padding-left: 70px;
+                min-height: 70px;
+            }
+        }
     }
 }
 
@@ -514,4 +531,10 @@ SVG Icons - svgicons.sparkk.fr
     width: 1em;
     height: 1em;
     color:inherit;
+}
+
+#migration-pathways {
+    iframe {
+        min-height: 470px;
+    }
 }

@@ -178,14 +178,30 @@ get_header();
 
 
 
-<div id="migration-pathways" class="relative bg-gray-200 pt-16">
-    <div class="text-xl md:text-2xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Migration Pathways</div>
-    <div data-pym-src="https://sociopublico.github.io/global-skills-map"></div>
-    <div class="pl-4 sm:px-8 lg:px-16 xl:px-20 py-4 bg-gray-300">
-    <a href="/see-methodology" title="See methodology" class="text-teal no-underline hover:text-teal-dark">
-        Lorem ipsum</a>
-    </div>
-</div>
+    
+    <?php 
+    $map_url=get_settings('map_url');
+    if ($map_url) {
+        echo '<div id="migration-pathways" class="relative bg-gray-200 pt-16">';
+        echo '<div class="text-xl md:text-2xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Migration Pathways</div>';
+        echo '<div data-pym-src="'. html_entity_decode($map_url) .'"></div>';
+        
+
+
+        $map_legal_text=get_settings('map_text');
+        if ($map_legal_text) {
+            echo '<div class="pl-4 sm:px-8 lg:px-16 xl:px-20 py-4 bg-gray-300">';
+            echo html_entity_decode($map_legal_text); 
+            echo '</div>';
+        }
+
+        echo '</div>';
+        echo '</div>';
+    }
+
+
+    
+    ?>
 
 <?php
 get_footer();
