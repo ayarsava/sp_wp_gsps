@@ -37,7 +37,7 @@ get_header();
 
 
                 <div class="relative">
-                    <p class="text-md md:text-xl text-gray-800 text-base leading-relaxed mt-8 font-semibold max-w-3xl mx-auto">The Global Skill Partnership is a migration model that ensures mobility contributes to development for all. Both countries of origin and destination get new workers, with needed skills, to help businesses grow and thrive.<br>But that’s not all.</p>
+                    <p class="text-md md:text-xl text-gray-800 text-base md:leading-relaxed mt-8 font-semibold max-w-3xl mx-auto">The Global Skill Partnership is a migration model that ensures mobility contributes to development for all. Both countries of origin and destination get new workers, with needed skills, to help businesses grow and thrive.<br>But that’s not all.</p>
                     
                     <lottie-player id="people1Lottie" class="w-36 md:w-56 md:h-48 xl:h-60 absolute z-10 left-0 sm:top-20 md:top-10 xl:top-0" src="<?php echo get_template_directory_uri(); ?>/media/samples/people-07.json">"></lottie-player>
 
@@ -68,7 +68,7 @@ get_header();
             </div>
             <!-- lottie animantion 1 text -->
             <div class="flex-1 hero-text">
-                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of origin get support<br>for their broader development goals</p>
+                <p class="text-md md:text-xl text-gray-800 md:leading-relaxed mt-8 font-semibold">Countries of origin get support<br>for their broader development goals</p>
             </div>
         </div>
 
@@ -76,7 +76,7 @@ get_header();
         <div class="hero-wrapper flex flex-row space-x-8 items-center">
             <!-- lottie animantion 2 text -->
             <div class="flex-1 hero-text text-right">
-                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">Countries of destination<br>get to manage migration<br>in a safe, legal, and ethical way</p>
+                <p class="text-md md:text-xl text-gray-800 md:leading-relaxed mt-8 font-semibold">Countries of destination<br>get to manage migration<br>in a safe, legal, and ethical way</p>
             </div>
             <!-- lottie animantion 2 -->
             <div class="flex-1 hero-image max-w-xs relative">
@@ -99,7 +99,7 @@ get_header();
             </div>
             <!-- lottie animantion 3 text -->
             <div class="flex-1 hero-text">
-                <p class="text-md md:text-xl text-gray-800 leading-relaxed mt-8 font-semibold">And trainees get access to safe migration pathways,<br>new opportunities,<br>and better lives</p>
+                <p class="text-md md:text-xl text-gray-800 md:leading-relaxed mt-8 font-semibold">And trainees get access to safe migration pathways,<br>new opportunities,<br>and better lives</p>
             </div>
         </div>
     </div>
