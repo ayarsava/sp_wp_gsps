@@ -31,9 +31,7 @@ get_header();
 
 	<!-- GSP in Action-->
 	<div id="gsp-in-action" class="relative bg-gray-100  py-20">
-		<div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-28 md:-left-2 mb-10">
-			<div class="text-base font-semibold">GSP in Action</div>
-		</div>
+		<div class="text-xl md:text-xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">GSP in Action</div>
 
 		<!-- Pilot list -->
 		<?php wp_front_pilot(); ?>

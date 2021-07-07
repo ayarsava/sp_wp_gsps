@@ -71,7 +71,7 @@ get_header();
                     'post_status'=>'publish',
                     'posts_per_page' => $posts_per_page,
                     'orderby'=> 'post_date', 
-                    'order' => 'ASC',
+                    'order' => 'DESC',
                     'paged'          => $paged,
                     'tax_query' => [
                         [

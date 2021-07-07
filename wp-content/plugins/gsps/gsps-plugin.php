@@ -600,7 +600,7 @@ if ( ! function_exists( 'wp_related_content' ) ) {
 			}
 			echo '</div>';
 		} else {
-			echo '<div id="related-content" class="relative bg-gray-100 py-20"><div class="text-center sm:mx-auto md:absolute md:transform md:-rotate-90 md:top-32 md:-left-2 mb-10"><div class="text-base font-semibold">Related content</div></div>';
+			echo '<div id="related-content" class="relative bg-gray-100 py-20"><div class="text-xl md:text-xl font-semibold pl-4 sm:px-8 lg:px-16 xl:px-20 mb-8">Related content</div>';
 			wp_front_pilot();
 			echo '</div>';
 		}
