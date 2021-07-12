@@ -699,6 +699,13 @@ function gsps_general_section() {
         'general' // What Page?  This makes the section show up on the General Settings Page
     );
 
+	add_settings_section(  
+        'linkedin_settings_section', // Section ID 
+        'Linkedin', // Section Title
+        'linkedin_options_callback', // Callback
+        'general' // What Page?  This makes the section show up on the General Settings Page
+    );
+
     add_settings_field( // Map url
         'map_url', // Option ID
         'Map url', // Label
@@ -721,13 +728,29 @@ function gsps_general_section() {
         )  
     ); 
 
+	add_settings_field( // Map url
+        'linkedin_url', // Option ID
+        'Linkedin url', // Label
+        'my_linkedinurlbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'linkedin_settings_section', // Name of our section
+        array( // The $args
+            'linkedin_url' // Should match Option ID
+        )  
+    ); 
+
     register_setting('general','map_url', 'esc_attr');
     register_setting('general','map_text','');
+	register_setting('general','linkedin_url', 'esc_attr');
 }
 
 function my_section_options_callback() { // Section Callback
     echo '<p>Enter map url and legal or explanatory text.</p>';  
 }
+function linkedin_options_callback() { // Section Callback
+    echo '<p>Enter Linkedin data.</p>';  
+}
+
 
 function my_urlbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
@@ -740,6 +763,11 @@ function my_textbox_callback($args) {  // Textbox Callback
         'map_text', 
         array( 'textarea_name' => 'map_text' ) 
     );
+}
+
+function my_linkedinurlbox_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
 }
 
 

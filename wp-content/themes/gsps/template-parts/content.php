@@ -81,21 +81,6 @@ $images = rwmb_meta( 'pilot_header', array( 'size' => 'full','limit' => 1 ) );
 		
 		<!-- Content -->
 		<div class="relative entry-content">
-			<?php 
-				$files = rwmb_meta( 'mb_file' );
-				if ( ! empty( $files ) )  { 
-					echo '<ul class="pdfbutton">';
-					if (is_array($files) || is_object($files))
-					{
-						foreach ( $files as $file ) {
-							?>
-							<li><a href="<?php echo $file['url']; ?>" class="block" target="_blank"><?php echo $file['title']; ?></a></li>
-							<?php
-						}
-					}
-					echo '</ul>';
-				} 
-			?>
 			<nav class="toc js-toc container items-center max-w-3xl px-8 pt-10 mx-auto leading-tight xl:absolute xl:top-8 xl:pl-8 xl:pt-0 xl:max-w-xs xl:pr-16"></nav>
 			<div class="container items-center max-w-3xl px-8 py-10 mx-auto space-y-6 leading-relaxed">
 				<div class="tags">
@@ -218,7 +203,7 @@ $images = rwmb_meta( 'pilot_header', array( 'size' => 'full','limit' => 1 ) );
 				$texts = rwmb_meta( 'text_1' );
 				$urls = rwmb_meta( 'url_1' );
 				if ( ! empty( $texts ) ) {
-					echo '<div class="border p-4"><div class="h3 font-bold">More info</div>';
+					echo '<div class="border pt-4 pb-0 px-4"><div class="h3 font-bold">More info</div>';
 					echo '<ul class="list-disc px-10 py-4">';
 					if (is_array($texts) || is_object($texts))
 						{
@@ -229,6 +214,23 @@ $images = rwmb_meta( 'pilot_header', array( 'size' => 'full','limit' => 1 ) );
 					echo '</ul>';
 					echo '</div>';
 				}
+				?>
+				<?php 
+					$files = rwmb_meta( 'mb_file' );
+					if ( ! empty( $files ) )  { 
+						echo '<div class="border pt-4 pb-0 px-4"><div class="h3 font-bold">Downloads</div>';
+						echo '<ul class="list-disc px-10 py-4">';
+						if (is_array($files) || is_object($files))
+						{
+							foreach ( $files as $file ) {
+								?>
+								<li><a href="<?php echo $file['url']; ?>" class="block" target="_blank"><?php echo $file['title']; ?></a></li>
+								<?php
+							}
+						}
+						echo '</ul>';
+						echo '</div>';
+					} 
 				?>
 			</div>
 		</div>

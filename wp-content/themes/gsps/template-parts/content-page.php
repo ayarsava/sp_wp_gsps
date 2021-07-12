@@ -73,18 +73,6 @@
 	<nav class="toc js-toc container items-center max-w-3xl px-8 pt-10 mx-auto leading-tight xl:fixed xl:top-36 xl:pl-8 xl:pt-0 xl:max-w-xs xl:pr-16"></nav>
 	<div class="entry-content">
 		<!-- Content -->
-		<?php 
-			$files = rwmb_meta( 'mb_file' );
-			if ( ! empty( $files ) )  { 
-				echo '<ul class="pdfbutton">';
-				foreach ( $files as $file ) {
-					?>
-					<li><a href="<?php echo $file['url']; ?>" class="block" target="_blank"><?php echo $file['title']; ?></a></li>
-					<?php
-				}
-				echo '</ul>';
-			} 
-		?>
 		<div class="container items-center max-w-3xl px-8 py-10 mx-auto space-y-6 leading-relaxed">
 			<?php 
 				the_content();
@@ -101,6 +89,23 @@
 					echo '</ul>';
 					echo '</div>';
 				}
+			?>
+			<?php 
+				$files = rwmb_meta( 'mb_file' );
+				if ( ! empty( $files ) )  { 
+					echo '<div class="border pt-4 pb-0 px-4"><div class="h3 font-bold">Downloads</div>';
+					echo '<ul class="list-disc px-10 py-4">';
+					if (is_array($files) || is_object($files))
+					{
+						foreach ( $files as $file ) {
+							?>
+							<li><a href="<?php echo $file['url']; ?>" class="block" target="_blank"><?php echo $file['title']; ?></a></li>
+							<?php
+						}
+					}
+					echo '</ul>';
+					echo '</div>';
+				} 
 			?>
 		</div>
 	</div><!-- .entry-content -->

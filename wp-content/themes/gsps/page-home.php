@@ -154,11 +154,14 @@ get_header();
      <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto mt-10">
         <div class="grid lg:grid-cols-4 gap-4 fp-stories">
             <?php wp_front_posts_per_category(6,'gsp-in-action',0); ?>
-            <div href="#" class="flex flex-col justify-between bg-teal-light p-8 col-span-3 md:col-span-1" title="Join the linkedIn Group">
-                <h4 class="text-large font-semibold text-gray-100 leading-tight mb-4">LinkedIn Group</h4>
-
-                <a class="px-4 py-3 border border-light-blue-500 border-opacity-40 text-center text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900" href="#">Join the conversation</a>
-            </div>
+            <?php 
+            $linkedin_url=get_settings('linkedin_url');
+            if ($linkedin_url) {
+                echo '<div class="flex flex-col justify-between bg-teal-light p-8 col-span-3 md:col-span-1" title="Join the linkedIn Group">
+                <h4 class="text-large font-semibold text-gray-100 leading-tight mb-4">LinkedIn Group</h4><a href="'. html_entity_decode($linkedin_url) .'" target="_blank" class="px-4 py-3 border border-light-blue-500 border-opacity-40 text-center text-gray-200 font-semibold hover:bg-yellow hover:text-gray-900">Join the conversation</a>
+                </div>';
+            }
+            ?>            
         </div>
     </div>
 
